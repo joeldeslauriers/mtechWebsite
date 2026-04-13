@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip show:*)",
+      "Bash(pip install:*)",
+      "Bash(dir C:\\\\MTech WebSite:*)",
+      "Bash(cmd:*)",
+      "Bash(python -c ':*)",
+      "Bash(python generer_toitures.py)",
+      "Bash(start:*)",
+      "WebFetch(domain:www.groupemtech.ca)",
+      "WebSearch",
+      "WebFetch(domain:web.archive.org)",
+      "Bash(python:*)",
+      "Bash(gh --version)",
+      "Bash(winget list:*)",
+      "Bash(where gh:*)",
+      "Read(//c/Program Files/**)"
+    ]
+  }
+}

@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Groupe M-Tech Inc. – Couvreur Laurentides, Montréal & Lanaudière</title>
+  <meta name="description" content="Experts en toiture résidentielle et commerciale. Remplacement, réparation, inspection, déneigement. Laurentides, Montréal, Lanaudière. Soumission gratuite." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+  :root {
+    --black:    #08090c;
+    --dark:     #0f1015;
+    --dark2:    #16181f;
+    --card:     #1c1e27;
+    --card2:    #22242f;
+    --steel:    #3a7bd5;
+    --steel-dk: #2860b4;
+    --steel-lt: #5da0f0;
+    --steel-bg: rgba(58,123,213,.1);
+    --white:    #f4f6fb;
+    --gray-lt:  #f0f1f5;
+    --gray-md:  #e0e3ec;
+    --text:     #e4e7f0;
+    --muted:    #7a8099;
+    --border:   rgba(255,255,255,.07);
+    --border-lt:#dde0ea;
+    --serif:    'Syne', sans-serif;
+    --sans:     'Inter', system-ui, sans-serif;
+    --ease:     cubic-bezier(.4,0,.2,1);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--dark);color:var(--text);overflow-x:hidden;line-height:1.65}
+  h1,h2,h3,h4{font-family:var(--serif);line-height:1.1}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  ul{list-style:none}
+  button{cursor:pointer;border:none;background:none;font-family:var(--sans)}
+  .container{max-width:1200px;margin:0 auto;padding:0 32px}
+
+  /* LABELS */
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--steel);margin-bottom:14px}
+  .eyebrow::before{content:'';display:block;width:24px;height:1.5px;background:var(--steel);opacity:.6}
+
+  /* BUTTONS */
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;font-family:var(--sans);font-weight:600;font-size:.88rem;letter-spacing:.02em;transition:all .25s var(--ease)}
+  .btn-steel{background:var(--steel);color:#fff}
+  .btn-steel:hover{background:var(--steel-dk);transform:translateY(-2px);box-shadow:0 8px 28px rgba(58,123,213,.35)}
+  .btn-outline{border:1.5px solid rgba(255,255,255,.2);color:var(--text)}
+  .btn-outline:hover{border-color:var(--steel);color:var(--steel);transform:translateY(-2px)}
+  .btn-dark{background:var(--black);color:var(--text);border:1.5px solid var(--border)}
+  .btn-dark:hover{border-color:var(--steel);color:var(--steel);transform:translateY(-2px)}
+  .btn-outline-dark{border:1.5px solid var(--border-lt);color:#333}
+  .btn-outline-dark:hover{border-color:var(--steel);color:var(--steel);transform:translateY(-2px)}
+  .btn-white{background:#fff;color:var(--steel-dk);font-weight:700}
+  .btn-white:hover{background:var(--gray-lt);transform:translateY(-2px)}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:none}
+  .reveal-l{opacity:0;transform:translateX(-28px);transition:opacity .6s ease,transform .6s ease}
+  .reveal-l.visible{opacity:1;transform:none}
+  .reveal-r{opacity:0;transform:translateX(28px);transition:opacity .6s ease,transform .6s ease}
+  .reveal-r.visible{opacity:1;transform:none}
+
+  /* ─── NAV ─────────────────────────────────────── */
+  #nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3s,border .3s}
+  #nav.scrolled{background:rgba(8,9,12,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--white)}
+  .logo-box{width:34px;height:34px;background:var(--steel);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .logo-box svg{width:18px;height:18px}
+  .logo em{color:var(--steel);font-style:normal}
+  .nav-links{display:flex;gap:26px}
+  .nav-links a{font-size:.83rem;font-weight:500;color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--white)}
+  .nav-r{display:flex;align-items:center;gap:16px}
+  .nav-phone{font-weight:700;font-size:.88rem;color:var(--steel)}
+  .nav-cta{background:var(--steel);color:#fff;padding:9px 20px;font-size:.82rem;font-weight:600;transition:background .2s}
+  .nav-cta:hover{background:var(--steel-dk)}
+  .burger{display:none;flex-direction:column;gap:5px;padding:4px}
+  .burger span{display:block;height:1.5px;width:24px;background:var(--white);transition:all .3s var(--ease)}
+  .burger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+  .mob-menu{display:none;position:fixed;inset:70px 0 0;background:rgba(8,9,12,.98);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:36px;z-index:999}
+  .mob-menu.open{display:flex}
+  .mob-menu a{font-family:var(--serif);font-size:1.9rem;font-weight:800;color:var(--white);transition:color .2s}
+  .mob-menu a:hover{color:var(--steel)}
+
+  /* ─── HERO ─────────────────────────────────────── */
+  #hero{position:relative;min-height:100vh;display:grid;grid-template-columns:55% 45%;overflow:hidden}
+  .hero-l{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:100px 64px 80px 80px;background:var(--black)}
+  .hero-l::after{content:'';position:absolute;top:0;right:-1px;bottom:0;width:80px;background:var(--black);clip-path:polygon(0 0,0 100%,100% 100%);z-index:3}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--steel-bg);border:1px solid rgba(58,123,213,.25);color:var(--steel-lt);border-radius:2px;padding:7px 14px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;align-self:flex-start}
+  .hero-dot{width:6px;height:6px;background:var(--steel-lt);border-radius:50%;animation:blink 2s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+  .hero-l h1{font-size:clamp(2.8rem,4.8vw,4.6rem);color:var(--white);margin-bottom:20px;line-height:1.05}
+  .hero-l h1 em{color:var(--steel-lt);font-style:italic}
+  .hero-l p{font-size:1rem;color:var(--muted);max-width:440px;line-height:1.8;margin-bottom:36px}
+  .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-stats{display:flex;gap:32px;margin-top:56px;padding-top:32px;border-top:1px solid var(--border)}
+  .hstat-num{font-family:var(--serif);font-size:1.9rem;font-weight:800;color:var(--steel-lt)}
+  .hstat-lbl{font-size:.7rem;color:var(--muted);margin-top:3px;letter-spacing:.06em;text-transform:uppercase}
+  .hero-r{position:relative;overflow:hidden}
+  .hero-r img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .hero-r::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,var(--black) 0%,transparent 40%)}
+  .hero-float{position:absolute;bottom:36px;right:36px;background:rgba(8,9,12,.85);backdrop-filter:blur(10px);border:1px solid var(--border);padding:16px 20px;display:flex;align-items:center;gap:14px;z-index:2}
+  .hf-icon{width:40px;height:40px;background:var(--steel-bg);border:1px solid rgba(58,123,213,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .hf-icon svg{width:18px;height:18px;color:var(--steel)}
+  .hf-title{font-weight:700;font-size:.88rem;color:var(--white)}
+  .hf-sub{font-size:.72rem;color:var(--muted);margin-top:2px}
+
+  /* ─── PROMISE STRIP ─────────────────────────────── */
+  .promise-bar{background:var(--steel);display:grid;grid-template-columns:repeat(4,1fr)}
+  .pb-item{padding:22px 28px;border-right:1px solid rgba(255,255,255,.15);display:flex;align-items:center;gap:12px}
+  .pb-item:last-child{border-right:none}
+  .pb-icon svg{width:20px;height:20px;color:rgba(255,255,255,.7)}
+  .pb-title{font-weight:700;font-size:.85rem;color:#fff}
+  .pb-sub{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:1px}
+
+  /* ─── MATERIAUX ─────────────────────────────────── */
+  #materiaux{padding:100px 0;background:var(--dark2)}
+  .mat-top{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+  .mat-top h2{font-size:clamp(2rem,3.5vw,3rem);color:var(--white)}
+  .mat-top p{color:var(--muted);font-size:.93rem;line-height:1.8}
+  .mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+  .mat-item{position:relative;overflow:hidden;aspect-ratio:3/4;cursor:pointer}
+  .mat-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+  .mat-item:hover img{transform:scale(1.06)}
+  .mat-cover{position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,9,12,.95) 0%,rgba(8,9,12,.2) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;transition:background .35s}
+  .mat-item:hover .mat-cover{background:linear-gradient(0deg,rgba(58,123,213,.85) 0%,rgba(58,123,213,.35) 55%,rgba(58,123,213,.05) 100%)}
+  .mat-n{font-family:var(--serif);font-size:4rem;font-weight:800;color:rgba(255,255,255,.06);position:absolute;top:14px;right:18px;line-height:1;transition:color .35s}
+  .mat-item:hover .mat-n{color:rgba(255,255,255,.15)}
+  .mat-chip{display:inline-block;background:var(--steel);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;margin-bottom:7px;align-self:flex-start}
+  .mat-cover h3{font-family:var(--serif);font-size:1.2rem;color:#fff;margin-bottom:5px}
+  .mat-cover p{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.6;transition:color .3s}
+  .mat-item:hover .mat-cover p{color:rgba(255,255,255,.8)}
+  .mat-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .mat-item:hover .mat-tags{max-height:60px}
+  .mat-tag{background:rgba(255,255,255,.12);padding:3px 8px;font-size:.68rem;color:rgba(255,255,255,.75)}
+
+  /* ─── SERVICES ─────────────────────────────────── */
+  #services{padding:100px 0;background:var(--dark)}
+  .srv-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+  .srv-head h2{font-size:clamp(2rem,3.5vw,3rem);color:var(--white)}
+  .srv-head p{color:var(--muted);font-size:.93rem;line-height:1.8}
+  .srv-list{border-top:1px solid var(--border)}
+  .srv-row{display:grid;grid-template-columns:60px 1fr auto;gap:0 28px;align-items:center;padding:26px 0;border-bottom:1px solid var(--border);transition:background .2s,padding .2s}
+  .srv-row:hover{background:var(--dark2);padding:26px 20px;margin:0 -20px;border-radius:2px}
+  .srv-n{font-family:var(--serif);font-size:2rem;font-weight:800;color:var(--border);line-height:1;transition:color .2s}
+  .srv-row:hover .srv-n{color:var(--steel)}
+  .srv-body h3{font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:4px}
+  .srv-body p{font-size:.83rem;color:var(--muted);line-height:1.65}
+  .srv-arrow{display:flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;color:var(--steel);opacity:0;transition:opacity .2s;white-space:nowrap}
+  .srv-row:hover .srv-arrow{opacity:1}
+  .srv-arrow svg{transition:transform .2s}
+  .srv-row:hover .srv-arrow svg{transform:translateX(4px)}
+
+  /* ─── STATS ─────────────────────────────────────── */
+  .stats-row{background:var(--black);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .st-item{padding:48px 40px;border-right:1px solid var(--border);text-align:center}
+  .st-item:last-child{border-right:none}
+  .st-num{font-family:var(--serif);font-size:3.2rem;font-weight:800;color:var(--steel-lt);line-height:1}
+  .st-lbl{font-size:.72rem;color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
+
+  /* ─── ABOUT ─────────────────────────────────────── */
+  #about{display:grid;grid-template-columns:1fr 1fr}
+  .about-img{position:relative;min-height:560px;overflow:hidden}
+  .about-img > img{width:100%;height:100%;object-fit:cover}
+  .about-stamp{position:absolute;top:36px;left:36px;background:var(--steel);color:#fff;padding:18px 22px}
+  .about-stamp .big{font-family:var(--serif);font-size:2.8rem;font-weight:800;line-height:1}
+  .about-stamp .sm{font-size:.7rem;font-weight:700;opacity:.75;margin-top:3px;letter-spacing:.05em;text-transform:uppercase}
+  .about-inset{position:absolute;bottom:36px;right:-20px;width:170px;height:130px;overflow:hidden;border:4px solid var(--dark);box-shadow:0 8px 32px rgba(0,0,0,.5)}
+  .about-inset img{width:100%;height:100%;object-fit:cover}
+  .about-text{background:var(--dark);padding:80px 72px 80px 64px;display:flex;flex-direction:column;justify-content:center}
+  .about-text h2{font-size:clamp(2rem,3vw,2.8rem);color:var(--white);margin-bottom:18px}
+  .about-text p{color:var(--muted);font-size:.92rem;line-height:1.85;margin-bottom:14px}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0 32px}
+  .ag{display:flex;align-items:center;gap:9px;font-size:.83rem;color:var(--text);font-weight:500}
+  .ag-dot{width:6px;height:6px;border-radius:50%;background:var(--steel);flex-shrink:0}
+
+  /* ─── URGENCE ─────────────────────────────────── */
+  #urgence{display:grid;grid-template-columns:1fr 1fr}
+  .urg-l{background:var(--black);padding:80px 64px 80px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  .urg-l::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:rgba(220,38,38,.03)}
+  .urg-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.25);color:#f87171;padding:6px 14px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px;align-self:flex-start}
+  .urg-dot{width:6px;height:6px;border-radius:50%;background:#f87171;animation:blink 1.4s infinite}
+  .urg-l h2{font-size:clamp(2rem,3.5vw,3.2rem);color:var(--white);margin-bottom:18px}
+  .urg-l p{color:var(--muted);font-size:.92rem;line-height:1.8;margin-bottom:32px}
+  .urg-num{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+  .urg-ring{width:52px;height:52px;background:#dc2626;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:ring 3s infinite}
+  @keyframes ring{0%,85%,100%{transform:rotate(0)}87%{transform:rotate(-12deg)}90%{transform:rotate(12deg)}93%{transform:rotate(-8deg)}96%{transform:rotate(6deg)}}
+  .urg-ring svg{width:22px;height:22px}
+  .urg-tel{font-family:var(--serif);font-size:2.4rem;font-weight:800;color:#fff}
+  .urg-pts{display:flex;flex-direction:column;gap:10px}
+  .urg-pt{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--muted)}
+  .urg-pt::before{content:'';width:5px;height:5px;border-radius:50%;background:#f87171;flex-shrink:0}
+  .urg-r{position:relative;overflow:hidden}
+  .urg-r img{width:100%;height:100%;object-fit:cover;opacity:.35}
+  .urg-r::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--black) 0%,transparent 60%)}
+
+  /* ─── PROCESS ─────────────────────────────────── */
+  #process{padding:100px 0;background:var(--gray-lt)}
+  .proc-head{text-align:center;margin-bottom:72px}
+  .proc-head .eyebrow{color:var(--steel-dk)}
+  .proc-head .eyebrow::before{background:var(--steel-dk)}
+  .proc-head h2{font-size:clamp(2rem,3.5vw,3rem);color:#111;margin-bottom:12px}
+  .proc-head p{color:#666;max-width:500px;margin:0 auto;font-size:.93rem}
+  .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+  .proc-grid::after{content:'';position:absolute;top:28px;left:12%;right:12%;height:1px;background:var(--border-lt);z-index:0}
+  .proc-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 20px;position:relative;z-index:1}
+  .proc-circle{width:56px;height:56px;border-radius:50%;border:1.5px solid var(--border-lt);background:var(--gray-lt);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:800;color:#999;margin-bottom:20px;transition:all .3s}
+  .proc-step:hover .proc-circle,.proc-step.act .proc-circle{background:var(--steel);border-color:var(--steel);color:#fff;box-shadow:0 0 0 8px rgba(58,123,213,.12)}
+  .proc-step h3{font-family:var(--sans);font-size:.97rem;font-weight:700;color:#111;margin-bottom:7px}
+  .proc-step p{font-size:.81rem;color:#777;line-height:1.65}
+
+  /* ─── GALLERY ─────────────────────────────────── */
+  #gallery{padding:0 0 100px;background:var(--dark)}
+  .gal-head{padding:100px 0 48px}
+  .gal-head h2{font-size:clamp(2rem,3.5vw,3rem);color:var(--white);margin-bottom:10px}
+  .gal-head p{color:var(--muted);font-size:.93rem}
+  .gal-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;grid-template-rows:300px 240px;gap:4px}
+  .gal-item{overflow:hidden;position:relative;cursor:pointer}
+  .gal-item:first-child{grid-row:1/3}
+  .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .55s var(--ease)}
+  .gal-item:hover img{transform:scale(1.05)}
+  .gal-cap{position:absolute;bottom:0;left:0;right:0;padding:14px 16px 12px;background:linear-gradient(0deg,rgba(8,9,12,.8) 0%,transparent 100%);font-size:.78rem;font-weight:600;color:#fff;transform:translateY(4px);opacity:0;transition:.3s}
+  .gal-item:hover .gal-cap{transform:none;opacity:1}
+
+  /* lightbox */
+  #lb{display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.96);align-items:center;justify-content:center}
+  #lb.open{display:flex}
+  #lb img{max-width:90vw;max-height:88vh}
+  #lb-x{position:fixed;top:22px;right:28px;font-size:1.6rem;color:#fff;cursor:pointer;opacity:.6;transition:opacity .2s;font-weight:300}
+  #lb-x:hover{opacity:1}
+
+  /* ─── BRANDS ─────────────────────────────────── */
+  #brands{padding:52px 0;background:var(--black);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .brands-label{text-align:center;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:32px}
+  .brands-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px}
+  .brand{display:flex;align-items:center;gap:8px;background:var(--dark2);border:1px solid var(--border);padding:10px 18px;font-size:.8rem;font-weight:600;color:var(--muted);transition:all .25s}
+  .brand:hover{border-color:var(--steel);color:var(--steel-lt)}
+  .brand svg{width:14px;height:14px;color:var(--steel)}
+
+  /* ─── TESTIMONIALS ─────────────────────────────── */
+  #temoignages{padding:100px 0;background:var(--dark2)}
+  .temo-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+  .temo-head h2{font-size:clamp(2rem,3.5vw,3rem);color:var(--white)}
+  .temo-head p{color:var(--muted);font-size:.93rem;line-height:1.8}
+  .temo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+  .temo-c{background:var(--card);padding:32px;transition:background .3s}
+  .temo-c:hover{background:var(--card2)}
+  .temo-q{font-family:var(--serif);font-size:4rem;color:var(--steel);opacity:.25;line-height:.7;margin-bottom:14px;display:block}
+  .temo-stars{display:flex;gap:2px;margin-bottom:12px}
+  .temo-stars svg{width:13px;height:13px;fill:var(--steel-lt)}
+  .temo-text{font-size:.87rem;color:var(--muted);line-height:1.8;font-style:italic;margin-bottom:22px}
+  .temo-who{display:flex;align-items:center;gap:10px}
+  .temo-av{width:36px;height:36px;border-radius:50%;background:var(--steel);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:800;font-size:.85rem;flex-shrink:0}
+  .temo-name{font-weight:700;font-size:.84rem;color:var(--text)}
+  .temo-loc{font-size:.73rem;color:var(--muted)}
+
+  /* ─── ZONES ─────────────────────────────────────── */
+  #zones{padding:100px 0;background:var(--dark)}
+  .zones-head{text-align:center;margin-bottom:48px}
+  .zones-head h2{font-size:clamp(2rem,3.5vw,3rem);color:var(--white);margin-bottom:12px}
+  .zones-head p{color:var(--muted);max-width:520px;margin:0 auto;font-size:.93rem}
+  .zone-tabs{display:flex;border:1px solid var(--border);overflow:hidden;margin-bottom:36px}
+  .ztab{flex:1;padding:14px;text-align:center;font-weight:600;font-size:.85rem;color:var(--muted);background:var(--dark);border-right:1px solid var(--border);cursor:pointer;transition:all .25s}
+  .ztab:last-child{border-right:none}
+  .ztab.active{background:var(--steel);color:#fff;border-color:var(--steel)}
+  .ztab:hover:not(.active){background:var(--dark2);color:var(--text)}
+  .zpanel{display:none}
+  .zpanel.active{display:grid;grid-template-columns:1fr 1.5fr;gap:48px;align-items:start}
+  .zinfo h3{font-size:1.5rem;color:var(--white);margin-bottom:12px}
+  .zinfo p{color:var(--muted);font-size:.88rem;line-height:1.75;margin-bottom:20px}
+  .zcities{display:flex;flex-wrap:wrap;gap:8px}
+  .zcity{background:var(--dark2);border:1px solid var(--border);padding:5px 13px;font-size:.75rem;font-weight:500;color:var(--muted);transition:all .2s}
+  .zcity:hover{border-color:var(--steel);color:var(--steel)}
+  .zimg{overflow:hidden;aspect-ratio:16/9}
+  .zimg img{width:100%;height:100%;object-fit:cover}
+
+  /* ─── BLOG ─────────────────────────────────────── */
+  #blog{padding:100px 0;background:var(--gray-lt)}
+  .blog-top{display:grid;grid-template-columns:1fr auto;align-items:end;margin-bottom:48px;gap:24px}
+  .blog-top h2{font-size:clamp(2rem,3.5vw,3rem);color:#111}
+  .blog-top .eyebrow{color:var(--steel-dk)}
+  .blog-top .eyebrow::before{background:var(--steel-dk)}
+  .blog-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3px}
+  .blog-card{background:#fff;overflow:hidden}
+  .blog-img{overflow:hidden}
+  .blog-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+  .blog-card:hover .blog-img img{transform:scale(1.04)}
+  .blog-img{aspect-ratio:16/9}
+  .blog-card:first-child .blog-img{aspect-ratio:4/3}
+  .blog-body{padding:22px}
+  .blog-cat{font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-bottom:8px;display:block}
+  .blog-body h3{font-family:var(--serif);font-size:1.1rem;color:#111;line-height:1.25;margin-bottom:9px;transition:color .2s}
+  .blog-card:first-child .blog-body h3{font-size:1.35rem}
+  .blog-card:hover .blog-body h3{color:var(--steel-dk)}
+  .blog-body p{font-size:.8rem;color:#777;line-height:1.7;margin-bottom:14px}
+  .blog-meta{display:flex;gap:14px;font-size:.72rem;color:#999;align-items:center}
+  .blog-meta span{display:flex;align-items:center;gap:4px}
+  .blog-read{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;font-weight:600;color:var(--steel);margin-top:10px;transition:gap .2s}
+  .blog-card:hover .blog-read{gap:9px}
+
+  /* ─── FINANCEMENT ─────────────────────────────── */
+  #financement{padding:80px 0;background:var(--dark);border-top:1px solid var(--border)}
+  .fin-wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+  .fin-l h2{font-size:clamp(1.8rem,3vw,2.6rem);color:var(--white);margin-bottom:14px}
+  .fin-l p{color:var(--muted);font-size:.92rem;line-height:1.8;margin-bottom:28px}
+  .fin-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .fin-opt{background:var(--dark2);border:1px solid var(--border);padding:16px;display:flex;align-items:flex-start;gap:10px;transition:border-color .2s}
+  .fin-opt:hover{border-color:var(--steel)}
+  .fin-opt svg{width:18px;height:18px;color:var(--steel);flex-shrink:0;margin-top:1px}
+  .fin-opt-t{font-weight:700;font-size:.83rem;color:var(--text);margin-bottom:2px}
+  .fin-opt-s{font-size:.74rem;color:var(--muted)}
+  .fin-r{display:flex;flex-direction:column;gap:12px}
+  .fin-stat{background:var(--dark2);border:1px solid var(--border);padding:20px 24px;display:flex;align-items:center;gap:16px;transition:border-color .2s}
+  .fin-stat:hover{border-color:var(--steel)}
+  .fin-sn{font-family:var(--serif);font-size:2rem;font-weight:800;color:var(--steel-lt);line-height:1;flex-shrink:0;min-width:72px}
+  .fin-sl{font-size:.81rem;color:var(--muted);line-height:1.5}
+  .fin-sl strong{color:var(--text);display:block;margin-bottom:2px}
+
+  /* ─── FAQ ─────────────────────────────────────── */
+  #faq{padding:100px 0;background:var(--dark2)}
+  .faq-wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:80px;align-items:start}
+  .faq-aside h2{font-size:clamp(2rem,3vw,2.8rem);color:var(--white);margin-bottom:14px}
+  .faq-aside p{color:var(--muted);font-size:.92rem;line-height:1.8;margin-bottom:28px}
+  .faq-list{border-top:1px solid var(--border)}
+  .faq-item{border-bottom:1px solid var(--border)}
+  .faq-q{width:100%;padding:18px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;font-family:var(--sans);font-weight:600;font-size:.92rem;color:var(--text);transition:color .2s}
+  .faq-q:hover{color:var(--steel)}
+  .faq-icon{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s}
+  .faq-item.open .faq-icon{transform:rotate(45deg);background:var(--steel);border-color:var(--steel)}
+  .faq-icon svg{width:10px;height:10px;color:var(--muted)}
+  .faq-item.open .faq-icon svg{color:#fff}
+  .faq-ans{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .faq-item.open .faq-ans{max-height:300px}
+  .faq-ans-in{padding-bottom:16px;font-size:.86rem;color:var(--muted);line-height:1.8}
+
+  /* ─── CTA ─────────────────────────────────────── */
+  .cta-section{background:var(--steel);display:grid;grid-template-columns:1fr 1fr;min-height:320px}
+  .cta-l{padding:72px 64px 72px 80px;display:flex;flex-direction:column;justify-content:center}
+  .cta-l h2{font-size:clamp(1.8rem,3vw,2.8rem);color:#fff;margin-bottom:12px}
+  .cta-l p{color:rgba(255,255,255,.7);font-size:.93rem;line-height:1.75;margin-bottom:30px}
+  .cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+  .cta-r{position:relative;overflow:hidden}
+  .cta-r img{width:100%;height:100%;object-fit:cover;opacity:.35}
+  .cta-r::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--steel) 0%,transparent 60%)}
+
+  /* ─── CONTACT ─────────────────────────────────── */
+  #contact{padding:100px 0;background:var(--dark)}
+  .contact-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:start}
+  .con-l h2{font-size:clamp(2rem,3vw,2.8rem);color:var(--white);margin-bottom:14px}
+  .con-l>p{color:var(--muted);font-size:.92rem;line-height:1.8;margin-bottom:36px}
+  .con-items{display:flex;flex-direction:column;gap:20px}
+  .con-item{display:flex;align-items:flex-start;gap:14px}
+  .con-icon{width:40px;height:40px;background:var(--steel-bg);border:1px solid rgba(58,123,213,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .con-icon svg{width:16px;height:16px;color:var(--steel)}
+  .con-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:3px;font-weight:600}
+  .con-val{font-weight:700;font-size:.92rem;color:var(--text)}
+  .con-val a:hover{color:var(--steel)}
+  .con-form{background:var(--dark2);border:1px solid var(--border);padding:44px}
+  .con-form h3{font-family:var(--sans);font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:26px}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+  .fg label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .fg input,.fg select,.fg textarea{background:var(--card);border:1px solid var(--border);padding:12px 14px;font-family:var(--sans);font-size:.88rem;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+  .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--steel);box-shadow:0 0 0 3px rgba(58,123,213,.15)}
+  .fg textarea{resize:vertical;min-height:95px}
+  .fg select option{background:var(--card)}
+  .fsub{width:100%;padding:15px;font-size:.9rem;justify-content:center;margin-top:4px}
+  .fsuccess{display:none;text-align:center;padding:14px;color:var(--steel-lt);font-weight:600;font-size:.88rem}
+
+  /* ─── FOOTER ─────────────────────────────────── */
+  footer{background:var(--black);padding:64px 0 32px;border-top:1px solid var(--border)}
+  .foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border)}
+  .foot-brand .logo{margin-bottom:14px;display:inline-flex}
+  .foot-brand p{font-size:.82rem;color:var(--muted);line-height:1.75;max-width:240px}
+  .foot-soc{display:flex;gap:8px;margin-top:18px}
+  .soc{width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .25s}
+  .soc:hover{background:var(--steel);border-color:var(--steel)}
+  .soc svg{width:14px;height:14px;color:var(--muted)}
+  .soc:hover svg{color:#fff}
+  .foot-col h4{font-family:var(--sans);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:18px;opacity:.6}
+  .foot-col ul li{margin-bottom:9px}
+  .foot-col ul a{font-size:.82rem;color:var(--muted);transition:color .2s}
+  .foot-col ul a:hover{color:var(--steel-lt)}
+  .foot-bot{padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .foot-bot p{font-size:.76rem;color:rgba(255,255,255,.2)}
+  .chips{display:flex;gap:6px}
+  .chip{padding:3px 9px;border:1px solid var(--border);font-size:.67rem;font-weight:700;color:var(--muted)}
+
+  /* ─── FLOATING ─────────────────────────────────── */
+  .floats{position:fixed;bottom:26px;right:22px;display:flex;flex-direction:column;gap:10px;z-index:900}
+  .fcall{display:flex;align-items:center;gap:9px;background:var(--steel);color:#fff;padding:11px 16px 11px 13px;font-weight:600;font-size:.82rem;box-shadow:0 4px 20px rgba(58,123,213,.4);transition:all .2s}
+  .fcall:hover{background:var(--steel-dk);transform:scale(1.03)}
+  .fcall svg{width:17px;height:17px;flex-shrink:0}
+  #ftop{align-self:flex-end;width:40px;height:40px;background:var(--dark2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .3s}
+  #ftop.vis{opacity:1;pointer-events:all}
+  #ftop:hover{border-color:var(--steel)}
+  #ftop svg{width:15px;height:15px;color:var(--text)}
+
+  /* ─── RESPONSIVE ─────────────────────────────── */
+  @media(max-width:1024px){
+    #hero{grid-template-columns:1fr;min-height:auto}
+    .hero-l{padding:80px 40px 60px}
+    .hero-l::after{display:none}
+    .hero-r{height:420px}
+    .promise-bar{grid-template-columns:repeat(2,1fr)}
+    .pb-item:nth-child(2){border-right:none}
+    .mat-grid{grid-template-columns:repeat(2,1fr)}
+    .mat-item{aspect-ratio:4/3}
+    #about{grid-template-columns:1fr}
+    .about-img{min-height:360px}
+    .about-text{padding:60px 40px}
+    .about-inset{right:0}
+    #urgence{grid-template-columns:1fr}
+    .urg-r{display:none}
+    .urg-l{padding:72px 40px}
+    .proc-grid{grid-template-columns:repeat(2,1fr);gap:36px}
+    .proc-grid::after{display:none}
+    .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+    .gal-item:first-child{grid-row:auto}
+    .temo-grid{grid-template-columns:1fr 1fr}
+    .temo-head{grid-template-columns:1fr}
+    .blog-grid{grid-template-columns:1fr 1fr}
+    .blog-card:first-child{grid-column:1/-1}
+    .fin-wrap{grid-template-columns:1fr;gap:48px}
+    .faq-wrap{grid-template-columns:1fr;gap:40px}
+    .cta-section{grid-template-columns:1fr}
+    .cta-r{display:none}
+    .contact-wrap{grid-template-columns:1fr;gap:48px}
+    .foot-top{grid-template-columns:1fr 1fr}
+    .srv-head{grid-template-columns:1fr}
+    .mat-top{grid-template-columns:1fr}
+  }
+  @media(max-width:768px){
+    .nav-links,.nav-cta{display:none}
+    .burger{display:flex}
+    .temo-grid{grid-template-columns:1fr}
+    .blog-grid{grid-template-columns:1fr}
+    .fin-opts{grid-template-columns:1fr}
+    .zones-head,.temo-head{grid-template-columns:1fr}
+    .con-form{padding:28px 22px}
+    .foot-top{grid-template-columns:1fr;gap:28px}
+    .foot-bot{flex-direction:column;align-items:flex-start}
+    .hero-stats{gap:20px}
+    .stats-row{grid-template-columns:repeat(2,1fr)}
+    .st-item:nth-child(2){border-right:none}
+    .st-item:nth-child(3){border-top:1px solid var(--border)}
+    .fcall span{display:none}
+    .fcall{padding:13px}
+    .cta-l{padding:60px 28px}
+    .urg-l{padding:60px 24px}
+  }
+  @media(max-width:480px){
+    .container{padding:0 18px}
+    .frow{grid-template-columns:1fr}
+    .proc-grid{grid-template-columns:1fr}
+    .gal-grid{grid-template-columns:1fr}
+    .mat-grid{grid-template-columns:1fr}
+    .promise-bar{grid-template-columns:1fr}
+  }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <div class="logo-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+      Groupe&nbsp;<em>M-Tech</em>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#materiaux">Matériaux</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#urgence">Urgence</a></li>
+      <li><a href="#gallery">Réalisations</a></li>
+      <li><a href="#zones">Zones</a></li>
+      <li><a href="#blog">Blogue</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-r">
+      <a href="tel:+14500000000" class="nav-phone">(450) 000-0000</a>
+      <a href="#contact" class="nav-cta">Soumission gratuite</a>
+    </div>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#materiaux"  onclick="closeMob()">Matériaux</a>
+  <a href="#services"   onclick="closeMob()">Services</a>
+  <a href="#urgence"    onclick="closeMob()">Urgence 24h</a>
+  <a href="#gallery"    onclick="closeMob()">Réalisations</a>
+  <a href="#zones"      onclick="closeMob()">Zones</a>
+  <a href="#blog"       onclick="closeMob()">Blogue</a>
+  <a href="#contact"    onclick="closeMob()">Contact</a>
+  <a href="#contact" onclick="closeMob()" class="btn btn-steel" style="margin-top:8px">Soumission gratuite</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-l">
+    <div class="hero-badge reveal"><span class="hero-dot"></span>Couvreur certifié — Laurentides & Grand Montréal</div>
+    <h1 class="reveal" style="transition-delay:.08s">Toiture<br><em>durable.</em><br>Prix juste.</h1>
+    <p class="reveal" style="transition-delay:.16s">Experts en toiture résidentielle et commerciale depuis plus de 10 ans. Remplacement, réparation, inspection, déneigement — Laurentides, Montréal, Lanaudière.</p>
+    <div class="hero-btns reveal" style="transition-delay:.24s">
+      <a href="#contact" class="btn btn-steel">Soumission gratuite</a>
+      <a href="tel:+14500000000" class="btn btn-outline">Appeler maintenant</a>
+    </div>
+    <div class="hero-stats reveal" style="transition-delay:.32s">
+      <div><div class="hstat-num" data-to="10">0</div><div class="hstat-lbl">Ans d'expérience</div></div>
+      <div><div class="hstat-num" data-to="500">0</div><div class="hstat-lbl">Projets réalisés</div></div>
+      <div><div class="hstat-num" data-to="98">0</div><div class="hstat-lbl">% Satisfaction</div></div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <img src="photos/hero.jpg" alt="Maison résidentielle avec belle toiture" />
+    <div class="hero-float">
+      <div class="hf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div><div class="hf-title">Couvreur certifié RBQ</div><div class="hf-sub">Garanti · Assuré · CNESST</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE BAR -->
+<div class="promise-bar">
+  <div class="pb-item"><div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="pb-title">Urgences 24h / 7j</div><div class="pb-sub">Intervention rapide</div></div></div>
+  <div class="pb-item"><div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div><div class="pb-title">Soumission 100% gratuite</div><div class="pb-sub">Sans engagement</div></div></div>
+  <div class="pb-item"><div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="pb-title">Garantie 10 à 25 ans</div><div class="pb-sub">Main-d'œuvre + matériaux</div></div></div>
+  <div class="pb-item"><div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><div class="pb-title">Licence RBQ valide</div><div class="pb-sub">Assurance CNESST</div></div></div>
+</div>
+
+<!-- MATERIAUX -->
+<section id="materiaux">
+  <div class="container">
+    <div class="mat-top">
+      <div class="reveal-l"><div class="eyebrow">Types de toitures</div><h2 style="color:var(--white)">Le bon matériau<br>pour votre projet</h2></div>
+      <p class="reveal-r" style="transition-delay:.1s">Chaque toiture est unique. Nous vous conseillons le matériau adapté à votre budget, style architectural et au climat québécois — et nous l'installons avec soin.</p>
+    </div>
+    <div class="mat-grid reveal">
+      <div class="mat-item"><img src="photos/house1.jpg" alt="Bardeaux d'asphalte" loading="lazy"/><div class="mat-cover"><span class="mat-n">01</span><span class="mat-chip">Le plus populaire</span><h3>Bardeaux d'asphalte</h3><p>Excellent rapport qualité-prix. Large choix de couleurs et styles pour toutes les maisons résidentielles.</p><div class="mat-tags"><span class="mat-tag">20–30 ans</span><span class="mat-tag">Prix abordable</span><span class="mat-tag">Facile à réparer</span></div></div></div>
+      <div class="mat-item"><img src="photos/house4.jpg" alt="Toiture métal" loading="lazy"/><div class="mat-cover"><span class="mat-n">02</span><span class="mat-chip">Premium</span><h3>Métal debout-sur-joint</h3><p>Longévité exceptionnelle et esthétique architecturale raffinée. Idéal pour chalets et maisons contemporaines.</p><div class="mat-tags"><span class="mat-tag">50+ ans</span><span class="mat-tag">Anti-neige</span><span class="mat-tag">Écoresponsable</span></div></div></div>
+      <div class="mat-item"><img src="photos/house7.jpg" alt="Bardeau de cèdre" loading="lazy"/><div class="mat-cover"><span class="mat-n">03</span><span class="mat-chip">Traditionnel</span><h3>Bardeau de cèdre</h3><p>Charme authentique du patrimoine québécois. Isolation naturelle supérieure, esthétique incomparable.</p><div class="mat-tags"><span class="mat-tag">30–40 ans</span><span class="mat-tag">Naturel</span><span class="mat-tag">Isolant</span></div></div></div>
+      <div class="mat-item"><img src="photos/house5.jpg" alt="Membrane TPO" loading="lazy"/><div class="mat-cover"><span class="mat-n">04</span><span class="mat-chip">Commercial</span><h3>Membrane TPO / EPDM</h3><p>Référence pour toits plats commerciaux et résidentiels. Étanche, écoénergétique, résistante.</p><div class="mat-tags"><span class="mat-tag">20–30 ans</span><span class="mat-tag">Toit plat</span><span class="mat-tag">Écoénergétique</span></div></div></div>
+      <div class="mat-item"><img src="photos/house2.jpg" alt="Lucarnes et pignons" loading="lazy"/><div class="mat-cover"><span class="mat-n">05</span><span class="mat-chip">Spécialité</span><h3>Lucarnes & pignons</h3><p>Complexité architecturale maîtrisée. Flashings et solin sur mesure pour les toitures à géométrie variable.</p><div class="mat-tags"><span class="mat-tag">Sur mesure</span><span class="mat-tag">Patrimoine</span><span class="mat-tag">Étanche</span></div></div></div>
+      <div class="mat-item"><img src="photos/house6b.jpg" alt="Rénovation complète" loading="lazy"/><div class="mat-cover"><span class="mat-n">06</span><span class="mat-chip">Rénovation</span><h3>Rénovation complète</h3><p>Retrait de l'ancienne toiture, inspection du pontage, isolation et installation clé en main. Sans surprise.</p><div class="mat-tags"><span class="mat-tag">Clé en main</span><span class="mat-tag">Garanti</span><span class="mat-tag">Nettoyage inclus</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="srv-head">
+      <div class="reveal-l"><div class="eyebrow">Nos services</div><h2 style="color:var(--white)">Ce que nous faisons mieux que personne</h2></div>
+      <p class="reveal-r" style="transition-delay:.1s">De la simple réparation à la réfection complète, notre équipe certifiée prend en charge tous vos projets de toiture résidentielle et commerciale.</p>
+    </div>
+    <div class="srv-list reveal">
+      <div class="srv-row"><span class="srv-n">01</span><div class="srv-body"><h3>Remplacement de toiture</h3><p>Installation complète de bardeaux d'asphalte, métal debout-sur-joint ou cèdre. Matériaux de qualité supérieure, garanties fabricant incluses.</p></div><a href="#contact" class="srv-arrow">Soumission <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+      <div class="srv-row"><span class="srv-n">02</span><div class="srv-body"><h3>Réparation & Service d'urgence</h3><p>Intervention rapide pour fuites, bardeaux manquants ou dommages de tempête. Disponible 24h/7j pour protéger votre propriété.</p></div><a href="tel:+14500000000" class="srv-arrow">Appeler <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+      <div class="srv-row"><span class="srv-n">03</span><div class="srv-body"><h3>Inspection professionnelle</h3><p>Évaluation complète avec rapport détaillé et photos. Recommandé avant tout achat immobilier ou pour anticiper les travaux.</p></div><a href="#contact" class="srv-arrow">Planifier <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+      <div class="srv-row"><span class="srv-n">04</span><div class="srv-body"><h3>Toiture neuve construction</h3><p>Installation pour nouvelles constructions résidentielles et agrandissements. Collaboration avec entrepreneurs généraux.</p></div><a href="#contact" class="srv-arrow">En discuter <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+      <div class="srv-row"><span class="srv-n">05</span><div class="srv-body"><h3>Déneigement de toiture</h3><p>Service hivernal essentiel pour prévenir surcharges, bris de structure et infiltrations. Équipe équipée et assurée.</p></div><a href="#contact" class="srv-arrow">Réserver <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+      <div class="srv-row"><span class="srv-n">06</span><div class="srv-body"><h3>Toiture commerciale & toit plat</h3><p>Membranes TPO, EPDM et élastomère pour toits plats commerciaux. Solutions durables pour grandes surfaces et bâtiments industriels.</p></div><a href="#contact" class="srv-arrow">Projet commercial <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="st-item reveal"><div class="st-num" data-to="10">0</div><div class="st-lbl">Ans d'expérience</div></div>
+  <div class="st-item reveal" style="transition-delay:.08s"><div class="st-num" data-to="500">0</div><div class="st-lbl">Projets réalisés</div></div>
+  <div class="st-item reveal" style="transition-delay:.16s"><div class="st-num" data-to="3">0</div><div class="st-lbl">Régions couvertes</div></div>
+  <div class="st-item reveal" style="transition-delay:.24s"><div class="st-num" data-to="98">0</div><div class="st-lbl">% Clients satisfaits</div></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img reveal-l">
+    <img src="photos/house3.jpg" alt="Maison québécoise rénovée" />
+    <div class="about-stamp"><div class="big">10+</div><div class="sm">Ans d'expertise<br>au Québec</div></div>
+    <div class="about-inset reveal" style="transition-delay:.2s"><img src="photos/worker.jpg" alt="Couvreur professionnel" /></div>
+  </div>
+  <div class="about-text">
+    <div class="eyebrow reveal-r">Qui sommes-nous</div>
+    <h2 class="reveal-r" style="transition-delay:.08s">Une équipe fondée sur la confiance</h2>
+    <p class="reveal-r" style="transition-delay:.12s">Fondé dans les Laurentides, Groupe M-Tech Inc. s'est imposé comme l'un des couvreurs les plus fiables de la région. Notre équipe de professionnels certifiés met son expertise au service de chaque projet.</p>
+    <p class="reveal-r" style="transition-delay:.16s">Matériaux de qualité, techniques éprouvées, service client irréprochable. <strong style="color:var(--text)">Toiture durable à prix compétitif</strong> — c'est notre engagement.</p>
+    <div class="about-grid reveal-r" style="transition-delay:.2s">
+      <div class="ag"><span class="ag-dot"></span>Couvreurs certifiés RBQ</div>
+      <div class="ag"><span class="ag-dot"></span>Assurés CNESST</div>
+      <div class="ag"><span class="ag-dot"></span>Garantie jusqu'à 25 ans</div>
+      <div class="ag"><span class="ag-dot"></span>Soumission gratuite</div>
+      <div class="ag"><span class="ag-dot"></span>Urgences 24h / 7j</div>
+      <div class="ag"><span class="ag-dot"></span>500+ projets réalisés</div>
+    </div>
+    <a href="#contact" class="btn btn-steel reveal-r" style="transition-delay:.24s;align-self:flex-start">Obtenir une soumission</a>
+  </div>
+</section>
+
+<!-- URGENCE -->
+<section id="urgence">
+  <div class="urg-l">
+    <div class="urg-badge reveal"><span class="urg-dot"></span>Disponible 24h / 7j — 365 jours par an</div>
+    <h2 class="reveal" style="transition-delay:.08s">Fuite? Dommage<br>de tempête?<br><em style="color:#f87171;font-style:italic">On intervient maintenant.</em></h2>
+    <p class="reveal" style="transition-delay:.14s">Chaque heure compte quand votre toiture est compromise. Notre équipe d'urgence se déplace rapidement dans toutes nos zones — Laurentides, Montréal et Lanaudière.</p>
+    <a href="tel:+14500000000" class="urg-num reveal" style="transition-delay:.2s">
+      <span class="urg-ring"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.25 2 2 0 012.09.07h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.17 6.17l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.92 15z"/></svg></span>
+      <span class="urg-tel">(450) 000-0000</span>
+    </a>
+    <div class="urg-pts reveal" style="transition-delay:.26s">
+      <div class="urg-pt">Délai d'intervention moyen — moins de 3 heures</div>
+      <div class="urg-pt">Bâche d'urgence posée sur place si nécessaire</div>
+      <div class="urg-pt">Rapport complet pour réclamation d'assurance</div>
+      <div class="urg-pt">Devis de réparation remis le jour même</div>
+    </div>
+  </div>
+  <div class="urg-r"><img src="photos/roof_work.jpg" alt="Réparation d'urgence toiture" /></div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="proc-head reveal">
+      <div class="eyebrow">Comment ça marche</div>
+      <h2>Votre projet en 4 étapes</h2>
+      <p>Un processus transparent, du premier contact jusqu'à la garantie finale — sans mauvaise surprise.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-step act reveal"><div class="proc-circle">1</div><h3>Contact</h3><p>Appelez ou remplissez le formulaire. Réponse garantie dans les 24 heures.</p></div>
+      <div class="proc-step reveal" style="transition-delay:.1s"><div class="proc-circle">2</div><h3>Inspection & devis</h3><p>Visite gratuite sur place, évaluation complète et soumission détaillée sans engagement.</p></div>
+      <div class="proc-step reveal" style="transition-delay:.2s"><div class="proc-circle">3</div><h3>Travaux</h3><p>Équipe certifiée, matériaux de qualité, dans les délais et le budget convenus.</p></div>
+      <div class="proc-step reveal" style="transition-delay:.3s"><div class="proc-circle">4</div><h3>Garantie</h3><p>Remise des garanties fabricant et main-d'œuvre. Inspection finale incluse.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="gal-head reveal">
+      <div class="eyebrow">Nos réalisations</div>
+      <h2>Projets récents</h2>
+      <p>Des toitures qui durent. Cliquez pour agrandir.</p>
+    </div>
+    <div class="gal-grid reveal">
+      <div class="gal-item" onclick="openLb(this)"><img src="photos/house2.jpg" alt="Réalisation 1" loading="lazy"/><div class="gal-cap">Résidence — Laurentides</div></div>
+      <div class="gal-item" onclick="openLb(this)"><img src="photos/house1.jpg" alt="Réalisation 2" loading="lazy"/><div class="gal-cap">Résidence — Saint-Jérôme</div></div>
+      <div class="gal-item" onclick="openLb(this)"><img src="photos/roof_shingles.jpg" alt="Réalisation 3" loading="lazy"/><div class="gal-cap">Installation bardeaux</div></div>
+      <div class="gal-item" onclick="openLb(this)"><img src="photos/house4.jpg" alt="Réalisation 4" loading="lazy"/><div class="gal-cap">Toiture métal — Mont-Tremblant</div></div>
+      <div class="gal-item" onclick="openLb(this)"><img src="photos/house7.jpg" alt="Réalisation 5" loading="lazy"/><div class="gal-cap">Rénovation complète</div></div>
+    </div>
+  </div>
+</section>
+<div id="lb"><span id="lb-x" onclick="closeLb()">&#x2715;</span><img id="lb-i" src="" alt=""/></div>
+
+<!-- BRANDS -->
+<section id="brands">
+  <p class="brands-label reveal">Matériaux de marques reconnues — installés par des professionnels certifiés</p>
+  <div class="brands-row reveal" style="transition-delay:.1s">
+    <div class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>IKO Industries</div>
+    <div class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>BP Canada</div>
+    <div class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Owens Corning</div>
+    <div class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Soprema</div>
+    <div class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>CertainTeed</div>
+    <div class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Firestone</div>
+    <div class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Vicaima Métal</div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="temoignages">
+  <div class="container">
+    <div class="temo-head">
+      <div class="reveal-l"><div class="eyebrow">Témoignages</div><h2 style="color:var(--white)">Ce que disent<br>nos clients</h2></div>
+      <p class="reveal-r" style="transition-delay:.1s">La satisfaction de nos clients est notre meilleure publicité. Voici ce qu'ils disent de leur expérience avec Groupe M-Tech.</p>
+    </div>
+    <div class="temo-grid reveal">
+      <div class="temo-c"><span class="temo-q">"</span><div class="temo-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="temo-text">Excellent travail du début à la fin. L'équipe a remplacé notre toiture en 2 jours, propres et professionnels. Le résultat est impeccable!</p><div class="temo-who"><div class="temo-av">ML</div><div><div class="temo-name">Martin Lafleur</div><div class="temo-loc">Saint-Jérôme, Laurentides</div></div></div></div>
+      <div class="temo-c"><span class="temo-q">"</span><div class="temo-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="temo-text">Appel d'urgence pour fuite sévère après tempête. Ils étaient chez nous dans les 3 heures. Problème réglé rapidement, prix très compétitif.</p><div class="temo-who"><div class="temo-av">SC</div><div><div class="temo-name">Sophie Champagne</div><div class="temo-loc">Montréal, Ahuntsic</div></div></div></div>
+      <div class="temo-c"><span class="temo-q">"</span><div class="temo-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="temo-text">Toiture en métal standing seam sur notre chalet. Résultat magnifique, travail soigné. Le meilleur investissement pour notre propriété!</p><div class="temo-who"><div class="temo-av">FD</div><div><div class="temo-name">François Desrochers</div><div class="temo-loc">Mont-Tremblant, Laurentides</div></div></div></div>
+      <div class="temo-c"><span class="temo-q">"</span><div class="temo-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="temo-text">Inspection avant achat immobilier. Rapport ultra-détaillé reçu rapidement. Ça m'a permis de négocier le prix. Service vraiment précieux!</p><div class="temo-who"><div class="temo-av">NB</div><div><div class="temo-name">Nathalie Bergeron</div><div class="temo-loc">Joliette, Lanaudière</div></div></div></div>
+      <div class="temo-c"><span class="temo-q">"</span><div class="temo-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="temo-text">Déneigement de toit commercial. Fait rapidement, sans dommage. Prix honnête, équipe fiable. Deuxième fois que je fais affaire avec eux!</p><div class="temo-who"><div class="temo-av">JP</div><div><div class="temo-name">Jean-Pierre Moreau</div><div class="temo-loc">Laval, Lanaudière</div></div></div></div>
+      <div class="temo-c"><span class="temo-q">"</span><div class="temo-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="temo-text">Remplacement de toiture pour mon immeuble. M-Tech a coordonné les travaux sans perturber mes locataires. Professionnels, ponctuels, top qualité!</p><div class="temo-who"><div class="temo-av">CR</div><div><div class="temo-name">Catherine Roy</div><div class="temo-loc">Blainville, Laurentides</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONES -->
+<section id="zones">
+  <div class="container">
+    <div class="zones-head reveal"><div class="eyebrow">Zones desservies</div><h2>Nous intervenons près de chez vous</h2><p>Laurentides, Grand Montréal et Lanaudière. Pas dans la liste? Contactez-nous!</p></div>
+    <div class="zone-tabs" id="ztabs"><div class="ztab active" onclick="zswitch(0)">Laurentides</div><div class="ztab" onclick="zswitch(1)">Grand Montréal</div><div class="ztab" onclick="zswitch(2)">Lanaudière</div></div>
+    <div class="zpanel active" id="z0"><div class="zinfo"><h3>Laurentides</h3><p>Notre région d'origine — couverture complète avec les délais d'intervention les plus rapides.</p><div class="zcities"><span class="zcity">Saint-Jérôme</span><span class="zcity">Mont-Tremblant</span><span class="zcity">Blainville</span><span class="zcity">Mirabel</span><span class="zcity">Saint-Sauveur</span><span class="zcity">Sainte-Agathe</span><span class="zcity">Lachute</span><span class="zcity">Prévost</span><span class="zcity">Sainte-Thérèse</span><span class="zcity">Morin-Heights</span></div></div><div class="zimg"><img src="photos/house1.jpg" alt="Laurentides" loading="lazy"/></div></div>
+    <div class="zpanel" id="z1"><div class="zinfo"><h3>Grand Montréal</h3><p>Résidentiel, commercial et multilogement dans tout le Grand Montréal et ses couronnes.</p><div class="zcities"><span class="zcity">Montréal</span><span class="zcity">Laval</span><span class="zcity">Terrebonne</span><span class="zcity">Repentigny</span><span class="zcity">Mascouche</span><span class="zcity">Brossard</span><span class="zcity">Longueuil</span><span class="zcity">Saint-Eustache</span></div></div><div class="zimg"><img src="photos/house5.jpg" alt="Grand Montréal" loading="lazy"/></div></div>
+    <div class="zpanel" id="z2"><div class="zinfo"><h3>Lanaudière</h3><p>Secteur en expansion — une équipe dédiée pour toute la région de Lanaudière.</p><div class="zcities"><span class="zcity">Joliette</span><span class="zcity">L'Assomption</span><span class="zcity">Berthierville</span><span class="zcity">Rawdon</span><span class="zcity">Saint-Charles-Borromée</span><span class="zcity">Lavaltrie</span></div></div><div class="zimg"><img src="photos/house4.jpg" alt="Lanaudière" loading="lazy"/></div></div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="container">
+    <div class="blog-top">
+      <div class="reveal-l"><div class="eyebrow">Conseils & actualités</div><h2>Le blogue M-Tech</h2></div>
+      <a href="#blog" class="btn btn-outline-dark reveal-r">Voir tous les articles</a>
+    </div>
+    <div class="blog-grid reveal">
+      <div class="blog-card"><div class="blog-img"><img src="photos/house1.jpg" alt="Choisir ses bardeaux" loading="lazy"/></div><div class="blog-body"><span class="blog-cat">Matériaux</span><h3>Comment choisir le bon type de bardeaux pour votre maison québécoise?</h3><p>Entre les bardeaux 3-tab classiques, architecturaux et premium — les différences de prix et durabilité sont considérables. Notre guide complet.</p><div class="blog-meta"><span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>15 jan. 2025</span><span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 min</span></div><a href="#blog" class="blog-read">Lire l'article <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+      <div class="blog-card"><div class="blog-img"><img src="photos/house5.jpg" alt="Entretien hiver" loading="lazy"/></div><div class="blog-body"><span class="blog-cat">Entretien</span><h3>5 gestes essentiels avant l'hiver pour protéger votre toiture</h3><p>Le froid, la neige et le gel mettent votre toit à rude épreuve. Les vérifications indispensables avant décembre.</p><div class="blog-meta"><span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>3 nov. 2024</span><span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4 min</span></div><a href="#blog" class="blog-read">Lire l'article <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+      <div class="blog-card"><div class="blog-img"><img src="photos/house4.jpg" alt="Métal vs asphalte" loading="lazy"/></div><div class="blog-body"><span class="blog-cat">Comparatif</span><h3>Toiture métal vs bardeaux : lequel vaut vraiment plus cher?</h3><p>Le métal coûte plus à l'installation, mais sur 30 ans le calcul peut être très différent. Analyse des coûts réels.</p><div class="blog-meta"><span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>22 sep. 2024</span><span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>8 min</span></div><a href="#blog" class="blog-read">Lire l'article <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCEMENT -->
+<section id="financement">
+  <div class="container">
+    <div class="fin-wrap">
+      <div class="reveal-l">
+        <div class="eyebrow">Financement</div>
+        <h2 style="color:var(--white)">Votre nouvelle toiture, dès maintenant</h2>
+        <p>Ne reportez plus vos travaux. Nous vous aidons à accéder à des solutions flexibles pour réaliser votre projet sans attendre.</p>
+        <div class="fin-opts">
+          <div class="fin-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><div><div class="fin-opt-t">Paiement différé</div><div class="fin-opt-s">Jusqu'à 12 mois sans intérêts</div></div></div>
+          <div class="fin-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><div><div class="fin-opt-t">Versements mensuels</div><div class="fin-opt-s">Plans adaptés à votre budget</div></div></div>
+          <div class="fin-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div><div class="fin-opt-t">Crédit RénoVert</div><div class="fin-opt-s">Vérifiez votre admissibilité</div></div></div>
+          <div class="fin-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><div><div class="fin-opt-t">Aide à l'assurance</div><div class="fin-opt-s">Rapport pour votre réclamation</div></div></div>
+        </div>
+        <a href="#contact" class="btn btn-steel" style="margin-top:28px">Discuter des options</a>
+      </div>
+      <div class="fin-r reveal-r" style="transition-delay:.1s">
+        <div class="fin-stat"><div class="fin-sn">0%</div><div class="fin-sl"><strong>Intérêt sur certains plans</strong>Selon admissibilité et durée du plan</div></div>
+        <div class="fin-stat"><div class="fin-sn">24h</div><div class="fin-sl"><strong>Délai d'approbation moyen</strong>Pour la majorité des demandes</div></div>
+        <div class="fin-stat"><div class="fin-sn">5k$</div><div class="fin-sl"><strong>Montant minimum finançable</strong>Résidentiel et commercial</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-wrap">
+      <div class="reveal-l">
+        <div class="eyebrow">Questions fréquentes</div>
+        <h2 style="color:var(--white)">Vos questions,<br>nos réponses</h2>
+        <p>Tout ce que vous devez savoir avant de démarrer votre projet de toiture.</p>
+        <a href="#contact" class="btn btn-steel" style="margin-top:28px">Poser une question</a>
+      </div>
+      <div class="faq-list reveal-r">
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Combien coûte le remplacement d'une toiture?<div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><div class="faq-ans-in">En moyenne entre 5 000 $ et 20 000 $ selon la superficie, le type de matériau et la complexité. Soumission gratuite et sans obligation pour un prix précis adapté à votre situation.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Quelle est la durée de vie des bardeaux d'asphalte?<div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><div class="faq-ans-in">20 à 25 ans pour les bardeaux standards, jusqu'à 30 ans pour les architecturaux de qualité. La toiture en métal peut facilement dépasser 50 ans.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Intervenez-vous en urgence les fins de semaine?<div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><div class="faq-ans-in">Oui. Service d'urgence disponible 24h/24, 7j/7, incluant fins de semaine et jours fériés. Appelez-nous directement en cas de fuite ou de dommage.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Avez-vous une licence RBQ valide?<div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><div class="faq-ans-in">Absolument. Groupe M-Tech Inc. est titulaire d'une licence RBQ, couverte par assurance responsabilité civile et CNESST. Vérifiable sur le site officiel de la RBQ.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Quelle garantie offrez-vous sur les travaux?<div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><div class="faq-ans-in">Garantie main-d'œuvre incluse + garantie fabricant sur les matériaux (10 à 25 ans selon le produit). Tous les détails dans votre contrat signé avant le début des travaux.</div></div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Combien de temps durent les travaux?<div class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><div class="faq-ans-in">Pour une maison unifamiliale standard, 1 à 2 jours. Pour des projets plus complexes, un calendrier précis est établi lors de la soumission.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-l">
+    <div class="eyebrow" style="color:rgba(255,255,255,.6)">Prêt à commencer?</div>
+    <h2>Obtenez votre soumission gratuite aujourd'hui</h2>
+    <p>Sans engagement. Réponse dans les 24 heures. Couvreur certifié RBQ.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn btn-white">Demander une soumission</a>
+      <a href="tel:+14500000000" class="btn btn-outline-white"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.25 2 2 0 012.09.07h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.17 6.17l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.92 15z"/></svg>(450) 000-0000</a>
+    </div>
+  </div>
+  <div class="cta-r"><img src="photos/house6b.jpg" alt="Toiture résidentielle" /></div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="reveal-l">
+        <div class="eyebrow">Contactez-nous</div>
+        <h2 style="color:var(--white)">Parlons de votre projet</h2>
+        <p>Remplissez le formulaire ou appelez-nous. Réponse dans les 24 heures ouvrables pour planifier votre soumission gratuite.</p>
+        <div class="con-items">
+          <div class="con-item"><div class="con-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.25 2 2 0 012.09.07h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.17 6.17l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.92 15z"/></svg></div><div><div class="con-lbl">Téléphone</div><div class="con-val"><a href="tel:+14500000000">(450) 000-0000</a></div></div></div>
+          <div class="con-item"><div class="con-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="con-lbl">Courriel</div><div class="con-val"><a href="mailto:info@groupemtech.ca">info@groupemtech.ca</a></div></div></div>
+          <div class="con-item"><div class="con-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="con-lbl">Heures</div><div class="con-val">Lun–Ven : 7h–18h · Urgences 24h/7j</div></div></div>
+        </div>
+      </div>
+      <div class="con-form reveal-r">
+        <h3>Demande de soumission gratuite</h3>
+        <form id="cform" onsubmit="submitForm(event)">
+          <div class="frow"><div class="fg"><label>Prénom</label><input type="text" placeholder="Jean" required/></div><div class="fg"><label>Nom</label><input type="text" placeholder="Tremblay" required/></div></div>
+          <div class="frow"><div class="fg"><label>Téléphone</label><input type="tel" placeholder="(450) 000-0000" required/></div><div class="fg"><label>Courriel</label><input type="email" placeholder="vous@email.com"/></div></div>
+          <div class="fg"><label>Ville</label><input type="text" placeholder="Saint-Jérôme" required/></div>
+          <div class="fg"><label>Service requis</label><select required><option value="" disabled selected>Choisissez...</option><option>Remplacement de toiture</option><option>Réparation d'urgence</option><option>Toiture neuve</option><option>Inspection</option><option>Déneigement</option><option>Toiture commerciale</option><option>Autre</option></select></div>
+          <div class="fg"><label>Description du projet</label><textarea placeholder="Ex: Maison de 1 étage, ~1800 pi², bardeaux de +20 ans..."></textarea></div>
+          <button type="submit" class="btn btn-steel fsub">Envoyer ma demande</button>
+          <div class="fsuccess" id="fsuccess">Message envoyé! Nous vous contacterons dans les 24 heures.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#hero" class="logo"><div class="logo-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>Groupe&nbsp;<em>M-Tech</em></a>
+        <p>Couvreur certifié au service des Laurentides, de Montréal et de Lanaudière. Toiture durable à prix compétitif depuis plus de 10 ans.</p>
+        <div class="foot-soc"><a href="#" class="soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a><a href="#" class="soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="#" class="soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a></div>
+      </div>
+      <div class="foot-col"><h4>Services</h4><ul><li><a href="#services">Remplacement de toiture</a></li><li><a href="#services">Réparation & Urgence</a></li><li><a href="#services">Inspection</a></li><li><a href="#services">Toiture neuve</a></li><li><a href="#services">Déneigement</a></li><li><a href="#services">Toiture commerciale</a></li></ul></div>
+      <div class="foot-col"><h4>Régions</h4><ul><li><a href="#zones">Laurentides</a></li><li><a href="#zones">Grand Montréal</a></li><li><a href="#zones">Lanaudière</a></li><li><a href="#zones">Saint-Jérôme</a></li><li><a href="#zones">Mont-Tremblant</a></li></ul></div>
+      <div class="foot-col"><h4>Contact</h4><ul><li><a href="tel:+14500000000">(450) 000-0000</a></li><li><a href="mailto:info@groupemtech.ca">info@groupemtech.ca</a></li><li><a href="#contact">Soumission gratuite</a></li><li><a href="#faq">FAQ</a></li><li><a href="#blog">Blogue</a></li></ul></div>
+    </div>
+    <div class="foot-bot">
+      <p>© 2025 Groupe M-Tech Inc. Tous droits réservés.</p>
+      <div class="chips"><span class="chip">RBQ</span><span class="chip">CNESST</span><span class="chip">Assuré</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING -->
+<div class="floats">
+  <a href="tel:+14500000000" class="fcall"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.25 2 2 0 012.09.07h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.17 6.17l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.92 15z"/></svg><span>Appeler maintenant</span></a>
+  <button id="ftop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+</div>
+
+<script>
+// Nav
+const nav=document.getElementById('nav'), ftop=document.getElementById('ftop');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>20);ftop.classList.toggle('vis',scrollY>500)});
+
+// Burger
+const burger=document.getElementById('burger'), mob=document.getElementById('mobMenu');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':''});
+function closeMob(){burger.classList.remove('open');mob.classList.remove('open');document.body.style.overflow=''}
+
+// Reveal
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.1});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
+
+// Counters
+function counter(el,to,suf){
+  const d=1800,s=performance.now();
+  (function tick(now){
+    const p=Math.min((now-s)/d,1),v=Math.round((1-Math.pow(1-p,3))*to);
+    el.textContent=v+suf;
+    if(p<1)requestAnimationFrame(tick);
+  })(s);
+}
+const cobs=new IntersectionObserver(e=>e.forEach(x=>{
+  if(!x.isIntersecting)return;
+  const el=x.target,t=+el.dataset.to,suf=t===98?'%':'+';
+  counter(el,t,suf);cobs.unobserve(el);
+}),{threshold:.5});
+document.querySelectorAll('[data-to]').forEach(el=>cobs.observe(el));
+
+// Zones
+function zswitch(i){document.querySelectorAll('.ztab').forEach((t,j)=>t.classList.toggle('active',j===i));document.querySelectorAll('.zpanel').forEach((p,j)=>p.classList.toggle('active',j===i))}
+
+// Lightbox
+function openLb(el){document.getElementById('lb-i').src=el.querySelector('img').src;document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden'}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow=''}
+document.getElementById('lb').addEventListener('click',e=>{if(e.target===e.currentTarget)closeLb()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+
+// FAQ
+function toggleFaq(btn){const item=btn.closest('.faq-item'),was=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open')}
+
+// Form
+function submitForm(e){e.preventDefault();const btn=e.target.querySelector('.fsub');btn.textContent='Envoi...';btn.disabled=true;setTimeout(()=>{e.target.reset();document.getElementById('fsuccess').style.display='block';btn.textContent='Envoyer ma demande';btn.disabled=false;setTimeout(()=>document.getElementById('fsuccess').style.display='none',5000)},1200)}
+</script>
+</body>
+</html>

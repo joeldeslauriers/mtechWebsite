@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie Toitures – MTech</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0f1117;
+            color: #e8e8e8;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, #1a1f2e 0%, #2d3a4a 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid #e8a020;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        header h1 span { color: #e8a020; }
+        header p {
+            margin-top: 10px;
+            color: #9aa5b4;
+            font-size: 0.95rem;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 24px;
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #1a1f2e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(232,160,32,0.25);
+        }
+        .card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+        .caption {
+            padding: 14px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #c8d6e5;
+            border-top: 2px solid #e8a020;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #4a5568;
+            font-size: 0.82rem;
+        }
+        #lightbox {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.93);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        #lightbox.active { display: flex; }
+        #lightbox img { max-width: 92vw; max-height: 90vh; border-radius: 8px; box-shadow: 0 0 60px rgba(232,160,32,0.2); }
+        #lightbox-close {
+            position: fixed; top: 18px; right: 28px;
+            font-size: 2.4rem; color: #fff; cursor: pointer;
+            line-height: 1; user-select: none; opacity: 0.8;
+        }
+        #lightbox-close:hover { opacity: 1; color: #e8a020; }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Galerie <span>Toitures Québec</span></h1>
+    <p>Images générées par IA (Pollinations.ai · Flux) • 6 images • 2026-04-07 09:21</p>
+</header>
+
+<div class="gallery">
+        <div class="card">
+            <img src="images_toitures/01_bardeaux_asphalte_gris.jpg" alt="Bardeaux d'asphalte gris charbon" loading="lazy">
+            <div class="caption">Bardeaux d'asphalte gris charbon</div>
+        </div>
+        <div class="card">
+            <img src="images_toitures/02_toit_metal_debout_sur_joint.jpg" alt="Toiture métal debout-sur-joint (Standing Seam)" loading="lazy">
+            <div class="caption">Toiture métal debout-sur-joint (Standing Seam)</div>
+        </div>
+        <div class="card">
+            <img src="images_toitures/03_bardeau_cedre_traditionnel.jpg" alt="Bardeau de cèdre traditionnel" loading="lazy">
+            <div class="caption">Bardeau de cèdre traditionnel</div>
+        </div>
+        <div class="card">
+            <img src="images_toitures/04_toit_plat_membrane_TPO.jpg" alt="Toiture plate membrane TPO/EPDM" loading="lazy">
+            <div class="caption">Toiture plate membrane TPO/EPDM</div>
+        </div>
+        <div class="card">
+            <img src="images_toitures/05_lucarne_pignon_quebecois.jpg" alt="Lucarne et pignon typique québécois" loading="lazy">
+            <div class="caption">Lucarne et pignon typique québécois</div>
+        </div>
+        <div class="card">
+            <img src="images_toitures/06_renovation_toiture_terminee.jpg" alt="Rénovation toiture complétée – résultat professionnel" loading="lazy">
+            <div class="caption">Rénovation toiture complétée – résultat professionnel</div>
+        </div>
+</div>
+
+<footer>MTech WebSite — Images IA de toitures québécoises</footer>
+
+<div id="lightbox">
+    <span id="lightbox-close" onclick="closeLightbox()">&#x2715;</span>
+    <img id="lightbox-img" src="" alt="">
+</div>
+<script>
+    document.querySelectorAll('.card img').forEach(img => {
+        img.addEventListener('click', () => {
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').classList.add('active');
+        });
+    });
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+    }
+    document.getElementById('lightbox').addEventListener('click', e => {
+        if (e.target === e.currentTarget) closeLightbox();
+    });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeLightbox();
+    });
+</script>
+</body>
+</html>
