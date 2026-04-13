@@ -108,6 +108,8 @@
   .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--steel-bg);border:1px solid rgba(58,123,213,.25);color:var(--steel-lt);border-radius:2px;padding:7px 14px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;align-self:flex-start}
   .hero-dot{width:6px;height:6px;background:var(--steel-lt);border-radius:50%;animation:blink 2s infinite}
   @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+  @keyframes heroFade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .hero-anim{animation:heroFade .7s ease both}
   .hero-l h1{font-size:clamp(2.8rem,4.8vw,4.6rem);color:var(--white);margin-bottom:20px;line-height:1.05}
   .hero-l h1 em{color:var(--steel-lt);font-style:italic}
   .hero-l p{font-size:1rem;color:var(--muted);max-width:440px;line-height:1.8;margin-bottom:36px}
@@ -115,8 +117,8 @@
   .hero-stats{display:flex;gap:32px;margin-top:56px;padding-top:32px;border-top:1px solid var(--border)}
   .hstat-num{font-family:var(--serif);font-size:1.9rem;font-weight:800;color:var(--steel-lt)}
   .hstat-lbl{font-size:.7rem;color:var(--muted);margin-top:3px;letter-spacing:.06em;text-transform:uppercase}
-  .hero-r{position:relative;overflow:hidden}
-  .hero-r img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .hero-r{position:relative;overflow:hidden;background:var(--dark2)}
+  .hero-r img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
   .hero-r::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,var(--black) 0%,transparent 40%)}
   .hero-float{position:absolute;bottom:36px;right:36px;background:rgba(8,9,12,.85);backdrop-filter:blur(10px);border:1px solid var(--border);padding:16px 20px;display:flex;align-items:center;gap:14px;z-index:2}
   .hf-icon{width:40px;height:40px;background:var(--steel-bg);border:1px solid rgba(58,123,213,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -538,14 +540,14 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-l">
-    <div class="hero-badge reveal"><span class="hero-dot"></span>Couvreur certifié — Laurentides & Grand Montréal</div>
-    <h1 class="reveal" style="transition-delay:.08s">Toiture<br><em>durable.</em><br>Prix juste.</h1>
-    <p class="reveal" style="transition-delay:.16s">Experts en toiture résidentielle et commerciale depuis plus de 10 ans. Remplacement, réparation, inspection, déneigement — Laurentides, Montréal, Lanaudière.</p>
-    <div class="hero-btns reveal" style="transition-delay:.24s">
+    <div class="hero-badge hero-anim" style="animation-delay:.05s"><span class="hero-dot"></span>Couvreur certifié — Laurentides & Grand Montréal</div>
+    <h1 class="hero-anim" style="animation-delay:.15s">Toiture<br><em>durable.</em><br>Prix juste.</h1>
+    <p class="hero-anim" style="animation-delay:.25s">Experts en toiture résidentielle et commerciale depuis plus de 10 ans. Remplacement, réparation, inspection, déneigement — Laurentides, Montréal, Lanaudière.</p>
+    <div class="hero-btns hero-anim" style="animation-delay:.35s">
       <a href="#contact" class="btn btn-steel">Soumission gratuite</a>
       <a href="tel:+15142473491" class="btn btn-outline">Appeler maintenant</a>
     </div>
-    <div class="hero-stats reveal" style="transition-delay:.32s">
+    <div class="hero-stats hero-anim" style="animation-delay:.42s">
       <div><div class="hstat-num" data-to="10">0</div><div class="hstat-lbl">Ans d'expérience</div></div>
       <div><div class="hstat-num" data-to="500">0</div><div class="hstat-lbl">Projets réalisés</div></div>
       <div><div class="hstat-num" data-to="98">0</div><div class="hstat-lbl">% Satisfaction</div></div>
