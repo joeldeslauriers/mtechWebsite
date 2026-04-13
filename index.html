@@ -548,9 +548,9 @@
       <a href="tel:+15142473491" class="btn btn-outline">Appeler maintenant</a>
     </div>
     <div class="hero-stats hero-anim" style="animation-delay:.42s">
-      <div><div class="hstat-num" data-to="10">0</div><div class="hstat-lbl">Ans d'expérience</div></div>
-      <div><div class="hstat-num" data-to="500">0</div><div class="hstat-lbl">Projets réalisés</div></div>
-      <div><div class="hstat-num" data-to="98">0</div><div class="hstat-lbl">% Satisfaction</div></div>
+      <div><div class="hstat-num">10+</div><div class="hstat-lbl">Ans d'expérience</div></div>
+      <div><div class="hstat-num">500+</div><div class="hstat-lbl">Projets réalisés</div></div>
+      <div><div class="hstat-num">100%</div><div class="hstat-lbl">Satisfaction</div></div>
     </div>
   </div>
   <div class="hero-r">
@@ -891,21 +891,6 @@ setTimeout(()=>{
   document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
 },120);
 
-// Counters
-function counter(el,to,suf){
-  const d=1800,s=performance.now();
-  (function tick(now){
-    const p=Math.min((now-s)/d,1),v=Math.round((1-Math.pow(1-p,3))*to);
-    el.textContent=v+suf;
-    if(p<1)requestAnimationFrame(tick);
-  })(s);
-}
-const cobs=new IntersectionObserver(e=>e.forEach(x=>{
-  if(!x.isIntersecting)return;
-  const el=x.target,t=+el.dataset.to,suf=t===98?'%':'+';
-  counter(el,t,suf);cobs.unobserve(el);
-}),{threshold:.5});
-document.querySelectorAll('[data-to]').forEach(el=>cobs.observe(el));
 
 // Zones
 function zswitch(i){document.querySelectorAll('.ztab').forEach((t,j)=>t.classList.toggle('active',j===i));document.querySelectorAll('.zpanel').forEach((p,j)=>p.classList.toggle('active',j===i))}
