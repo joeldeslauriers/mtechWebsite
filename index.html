@@ -91,6 +91,15 @@
   .mob-menu.open{display:flex}
   .mob-menu a{font-family:var(--serif);font-size:1.9rem;font-weight:800;color:var(--white);transition:color .2s}
   .mob-menu a:hover{color:var(--steel)}
+  .mob-phones{display:flex;flex-direction:column;gap:10px;width:100%;max-width:300px;margin-top:8px}
+  .mob-phone-btn{display:flex;flex-direction:column;align-items:center;padding:14px 20px;border-radius:4px;transition:opacity .2s}
+  .mob-phone-blue{background:var(--steel-bg);border:1.5px solid rgba(58,123,213,.4)}
+  .mob-phone-red{background:rgba(220,38,38,.12);border:1.5px solid rgba(220,38,38,.35)}
+  .mob-phone-lbl{font-family:var(--sans);font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}
+  .mob-phone-blue .mob-phone-lbl{color:var(--steel-lt)}
+  .mob-phone-red .mob-phone-lbl{color:#f87171}
+  .mob-phone-num{font-family:var(--serif);font-size:1.3rem;font-weight:800;color:var(--white)}
+  .mob-phone-btn:hover{opacity:.8}
 
   /* ─── HERO ─────────────────────────────────────── */
   #hero{position:relative;min-height:100vh;display:grid;grid-template-columns:55% 45%;overflow:hidden}
@@ -192,7 +201,19 @@
   .urg-dot{width:6px;height:6px;border-radius:50%;background:#f87171;animation:blink 1.4s infinite}
   .urg-l h2{font-size:clamp(2rem,3.5vw,3.2rem);color:var(--white);margin-bottom:18px}
   .urg-l p{color:var(--muted);font-size:.92rem;line-height:1.8;margin-bottom:32px}
-  .urg-num{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+  .urg-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+  .urg-btn{display:flex;align-items:center;gap:14px;padding:16px 20px;flex:1;min-width:190px;transition:transform .2s,box-shadow .2s;text-decoration:none}
+  .urg-btn-red{background:rgba(220,38,38,.13);border:1.5px solid rgba(220,38,38,.4)}
+  .urg-btn-blue{background:var(--steel-bg);border:1.5px solid rgba(58,123,213,.35)}
+  .urg-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .urg-btn-icon{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .urg-btn-red .urg-btn-icon{background:#dc2626}
+  .urg-btn-blue .urg-btn-icon{background:var(--steel)}
+  .urg-btn-icon svg{width:20px;height:20px;stroke:white}
+  .urg-btn-lbl{font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+  .urg-btn-red .urg-btn-lbl{color:#f87171}
+  .urg-btn-blue .urg-btn-lbl{color:var(--steel-lt)}
+  .urg-btn-num{font-family:var(--serif);font-size:1.35rem;font-weight:800;color:#fff;white-space:nowrap}
   .urg-ring{width:52px;height:52px;background:#dc2626;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:ring 3s infinite}
   @keyframes ring{0%,85%,100%{transform:rotate(0)}87%{transform:rotate(-12deg)}90%{transform:rotate(12deg)}93%{transform:rotate(-8deg)}96%{transform:rotate(6deg)}}
   .urg-ring svg{width:22px;height:22px}
@@ -441,7 +462,7 @@
     .mat-top{grid-template-columns:1fr}
   }
   @media(max-width:768px){
-    .nav-links,.nav-cta{display:none}
+    .nav-links,.nav-cta,.nav-phone{display:none}
     .burger{display:flex}
     .temo-grid{grid-template-columns:1fr}
     .blog-grid{grid-template-columns:1fr}
@@ -502,7 +523,16 @@
   <a href="#zones"      onclick="closeMob()">Zones</a>
   <a href="#blog"       onclick="closeMob()">Blogue</a>
   <a href="#contact"    onclick="closeMob()">Contact</a>
-  <a href="#contact" onclick="closeMob()" class="btn btn-steel" style="margin-top:8px">Soumission gratuite</a>
+  <div class="mob-phones">
+    <a href="tel:+15142473491" onclick="closeMob()" class="mob-phone-btn mob-phone-blue">
+      <span class="mob-phone-lbl">Soumission & RDV</span>
+      <span class="mob-phone-num">514-247-3491</span>
+    </a>
+    <a href="tel:+15146057114" onclick="closeMob()" class="mob-phone-btn mob-phone-red">
+      <span class="mob-phone-lbl">Urgence 24h / 7j</span>
+      <span class="mob-phone-num">514-605-7114</span>
+    </a>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -612,10 +642,16 @@
     <div class="urg-badge reveal"><span class="urg-dot"></span>Disponible 24h / 7j — 365 jours par an</div>
     <h2 class="reveal" style="transition-delay:.08s">Fuite? Dommage<br>de tempête?<br><em style="color:#f87171;font-style:italic">On intervient maintenant.</em></h2>
     <p class="reveal" style="transition-delay:.14s">Chaque heure compte quand votre toiture est compromise. Notre équipe d'urgence se déplace rapidement dans toutes nos zones — Laurentides, Montréal et Lanaudière.</p>
-    <a href="tel:+15146057114" class="urg-num reveal" style="transition-delay:.2s">
-      <span class="urg-ring"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.25 2 2 0 012.09.07h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.17 6.17l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.92 15z"/></svg></span>
-      <span class="urg-tel">514-605-7114</span>
-    </a>
+    <div class="urg-ctas reveal" style="transition-delay:.2s">
+      <a href="tel:+15146057114" class="urg-btn urg-btn-red">
+        <span class="urg-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.25 2 2 0 012.09.07h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.17 6.17l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.92 15z"/></svg></span>
+        <span><div class="urg-btn-lbl">Urgence 24h / 7j</div><div class="urg-btn-num">514-605-7114</div></span>
+      </a>
+      <a href="tel:+15142473491" class="urg-btn urg-btn-blue">
+        <span class="urg-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.25 2 2 0 012.09.07h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.17 6.17l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.92 15z"/></svg></span>
+        <span><div class="urg-btn-lbl">Soumission & RDV</div><div class="urg-btn-num">514-247-3491</div></span>
+      </a>
+    </div>
     <div class="urg-pts reveal" style="transition-delay:.26s">
       <div class="urg-pt">Délai d'intervention moyen — moins de 3 heures</div>
       <div class="urg-pt">Bâche d'urgence posée sur place si nécessaire</div>
@@ -847,9 +883,11 @@ const burger=document.getElementById('burger'), mob=document.getElementById('mob
 burger.addEventListener('click',()=>{burger.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':''});
 function closeMob(){burger.classList.remove('open');mob.classList.remove('open');document.body.style.overflow=''}
 
-// Reveal
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.1});
-document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
+// Reveal — délai pour éviter glitch au chargement
+setTimeout(()=>{
+  const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.1});
+  document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
+},120);
 
 // Counters
 function counter(el,to,suf){
