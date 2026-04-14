@@ -119,8 +119,8 @@
   .hstat-num{font-family:var(--serif);font-size:1.9rem;font-weight:800;color:var(--steel-lt);min-width:4ch;display:inline-block}
   .hstat-lbl{font-size:.7rem;color:var(--muted);margin-top:3px;letter-spacing:.06em;text-transform:uppercase}
   .hero-r{position:relative;overflow:hidden;background:var(--dark2)}
-  .hero-r img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-  .hero-r::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,var(--black) 0%,transparent 40%)}
+  .hero-r video{width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:.45;filter:saturate(.6) brightness(.7)}
+  .hero-r::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,var(--black) 0%,rgba(8,9,12,.55) 60%,rgba(8,9,12,.3) 100%)}
   .hero-float{position:absolute;bottom:36px;right:36px;background:rgba(8,9,12,.85);backdrop-filter:blur(10px);border:1px solid var(--border);padding:16px 20px;display:flex;align-items:center;gap:14px;z-index:2}
   .hf-icon{width:40px;height:40px;background:var(--steel-bg);border:1px solid rgba(58,123,213,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
   .hf-icon svg{width:18px;height:18px;color:var(--steel)}
@@ -563,7 +563,9 @@
     </div>
   </div>
   <div class="hero-r">
-    <img src="photos/hero.jpg" alt="Maison résidentielle avec belle toiture" />
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="Video/Background.mp4" type="video/mp4">
+    </video>
     <div class="hero-float">
       <div class="hf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
       <div><div class="hf-title">Couvreur certifié RBQ</div><div class="hf-sub">Garanti · Assuré · CNESST</div></div>
