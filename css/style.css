@@ -6,7 +6,7 @@
 
 /* ── Reset & Box Model ─────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; touch-action: pan-y; }
 body {
   margin: 0; padding: 0;
   font-family: 'Inter', sans-serif;
@@ -16,6 +16,7 @@ body {
   background: var(--white);
   overflow-x: hidden;
   overscroll-behavior-x: none;
+  touch-action: pan-y;
 }
 img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; }
