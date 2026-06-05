@@ -5,6 +5,18 @@
 (function () {
   'use strict';
 
+  /* ── Bloquer le rebond horizontal iOS Safari ──────────────── */
+  let _tx = 0, _ty = 0;
+  document.addEventListener('touchstart', e => {
+    _tx = e.touches[0].clientX;
+    _ty = e.touches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchmove', e => {
+    const dx = Math.abs(e.touches[0].clientX - _tx);
+    const dy = Math.abs(e.touches[0].clientY - _ty);
+    if (dx > dy) e.preventDefault();
+  }, { passive: false });
+
   /* ── Navbar scroll behaviour ──────────────────────────────── */
   const navbar = document.getElementById('navbar');
   if (navbar) {
