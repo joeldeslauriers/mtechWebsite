@@ -219,7 +219,10 @@
       <div class="animate-in stagger-2">
         <div class="card" style="padding:2.5rem;box-shadow:0 20px 60px rgba(0,0,0,.1)">
           <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;margin-bottom:1.5rem">Votre demande de soumission</h3>
-          <form class="form" action="mailto:info@groupemtech.ca" method="post" enctype="text/plain" aria-label="Formulaire de soumission gratuite">
+          <form class="form" id="soumission-form" action="https://api.web3forms.com/submit" method="POST" aria-label="Formulaire de soumission gratuite">
+            <input type="hidden" name="access_key" value="VOTRE_CLÉ_ICI">
+            <input type="hidden" name="subject" value="Nouvelle demande de soumission — Groupe Mtech Inc.">
+            <input type="checkbox" name="botcheck" style="display:none">
             <div class="form-group">
               <label for="nom-complet">Nom complet *</label>
               <input type="text" id="nom-complet" name="nom" required autocomplete="name" placeholder="Prénom et nom">
@@ -367,5 +370,33 @@
 </a>
 
 <script src="js/main.js"></script>
+<script>
+(function(){
+  var form = document.getElementById('soumission-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours…';
+    fetch('https://api.web3forms.com/submit', { method:'POST', body: new FormData(form) })
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if (data.success) {
+          form.innerHTML = '<div style="text-align:center;padding:2rem 1rem"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" style="display:block;margin:0 auto 1rem" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><h3 style="font-family:Montserrat,sans-serif;font-weight:800;font-size:1.3rem;margin-bottom:.75rem">Demande envoyée !</h3><p style="color:var(--midgray)">Merci — nous vous recontacterons dans les 24&nbsp;heures avec votre soumission.</p></div>';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Envoyer ma demande →';
+          alert('Une erreur est survenue. Veuillez réessayer ou nous appeler directement.');
+        }
+      })
+      .catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Envoyer ma demande →';
+        alert('Une erreur est survenue. Veuillez réessayer ou nous appeler directement.');
+      });
+  });
+})();
+</script>
 </body>
 </html>
