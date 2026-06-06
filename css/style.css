@@ -912,7 +912,7 @@ p  { margin: 0 0 1rem; }
 }
 .footer-social { display: flex; gap: 0.75rem; }
 .footer-social a {
-  width: 36px; height: 36px;
+  width: 66px; height: 66px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.15);
   display: flex;
@@ -926,7 +926,7 @@ p  { margin: 0 0 1rem; }
   border-color: var(--red);
   color: var(--white);
 }
-.footer-social a svg { width: 16px; height: 16px; }
+.footer-social a svg { width: 36px; height: 36px; }
 
 /* ════════════════════════════════════════════════════════════
    FLOATING URGENCY BUTTON (mobile only)
