@@ -15,7 +15,20 @@
       "Bash(gh --version)",
       "Bash(winget list:*)",
       "Bash(where gh:*)",
-      "Read(//c/Program Files/**)"
+      "Read(//c/Program Files/**)",
+      "Bash(ffmpeg -version)",
+      "Bash(Select-Object FullName)",
+      "Bash(find \"/mnt/c/MTech WebSite/Assets\" -type f | sort)",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\MTech WebSite\\\\css\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\MTech WebSite\\\\js\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(Start-Sleep -Seconds 2)",
+      "Bash(Invoke-WebRequest -Uri \"http://localhost:8080\" -UseBasicParsing -TimeoutSec 5)",
+      "Bash(Select-Object -ExpandProperty StatusCode)",
+      "PowerShell(Start-Sleep -Seconds 2; try { $r = Invoke-WebRequest -Uri \"http://localhost:8080\" -UseBasicParsing -TimeoutSec 5; $r.StatusCode } catch { $_.Exception.Message })",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }

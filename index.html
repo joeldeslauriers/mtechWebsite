@@ -30,26 +30,30 @@
       <img src="Assets/Logo/Logo Transparent.png" alt="Logo Groupe Mtech Inc. — Couvreur Laurentides">
     </a>
     <nav class="nav-links" aria-label="Navigation principale">
-      <a href="index.html"     data-nav>Accueil</a>
-      <a href="services.html"  data-nav>Services</a>
-      <a href="a-propos.html"  data-nav>À propos</a>
-      <a href="materiaux.html" data-nav>Matériaux</a>
-      <a href="emploi.html"    data-nav>Emploi</a>
+      <a href="index.html"        data-nav data-i18n="nav.home">Accueil</a>
+      <a href="services.html"     data-nav data-i18n="nav.services">Services</a>
+      <a href="a-propos.html"     data-nav data-i18n="nav.about">À propos</a>
+      <a href="materiaux.html"    data-nav data-i18n="nav.materials">Matériaux</a>
+      <a href="realisations.html" data-nav data-i18n="nav.realizations">Réalisations</a>
+      <a href="emploi.html"       data-nav data-i18n="nav.jobs">Emploi</a>
     </nav>
-    <a href="soumission.html" class="btn btn-primary nav-cta">Soumission gratuite</a>
-    <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <a href="soumission.html" class="btn btn-primary nav-cta" data-i18n="nav.quote">Soumission gratuite</a>
+    <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
+    <button class="hamburger" data-i18n-aria="nav.open" aria-label="Ouvrir le menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <nav class="nav-mobile-overlay" aria-label="Menu mobile">
-  <a href="index.html"     data-nav>Accueil</a>
-  <a href="services.html"  data-nav>Services</a>
-  <a href="a-propos.html"  data-nav>À propos</a>
-  <a href="materiaux.html" data-nav>Matériaux</a>
-  <a href="emploi.html"    data-nav>Emploi</a>
-  <a href="soumission.html" class="btn btn-primary btn-lg">Soumission gratuite</a>
+  <a href="index.html"        data-nav data-i18n="nav.home">Accueil</a>
+  <a href="services.html"     data-nav data-i18n="nav.services">Services</a>
+  <a href="a-propos.html"     data-nav data-i18n="nav.about">À propos</a>
+  <a href="materiaux.html"    data-nav data-i18n="nav.materials">Matériaux</a>
+  <a href="realisations.html" data-nav data-i18n="nav.realizations">Réalisations</a>
+  <a href="emploi.html"       data-nav data-i18n="nav.jobs">Emploi</a>
+  <a href="soumission.html" class="btn btn-primary btn-lg" data-i18n="nav.quote">Soumission gratuite</a>
+  <button class="lang-toggle-mobile" aria-label="Switch language">EN</button>
 </nav>
 
 <main>
@@ -65,23 +69,22 @@
     <div class="hero-content">
       <span class="badge">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        Licence RBQ 5868-4754-01
+        <span data-i18n="index.hero.badge">Licence RBQ 5868-4754-01</span>
       </span>
       <h1>
-        <span>Votre Toiture.</span>
-        <span>Notre Expertise.</span>
+        <span data-i18n="index.hero.title1">Votre Toiture.</span>
+        <span data-i18n="index.hero.title2">Notre Expertise.</span>
       </h1>
-      <p class="hero-subtitle">
-        Couvreurs experts dans les Laurentides, Montréal et Lanaudière.<br>
-        Installations durables, prix compétitifs, équipe de confiance.
+      <p class="hero-subtitle" data-i18n="index.hero.subtitle">
+        Couvreurs experts dans les Laurentides, Montréal et Lanaudière. Installations durables, prix compétitifs, équipe de confiance.
       </p>
     </div>
   </div>
   <!-- Boutons en bas -->
   <div class="container hero-bottom">
     <div class="btn-group">
-      <a href="soumission.html" class="btn btn-primary btn-lg">Soumission gratuite →</a>
-      <a href="services.html"   class="btn btn-outline btn-lg">Nos services</a>
+      <a href="soumission.html" class="btn btn-primary btn-lg" data-i18n="index.hero.cta1">Soumission gratuite →</a>
+      <a href="services.html"   class="btn btn-outline btn-lg" data-i18n="index.hero.cta2">Nos services</a>
     </div>
   </div>
 </section>
@@ -92,19 +95,19 @@
     <div class="stats-grid">
       <div class="stat-item animate-in">
         <span class="stat-number" data-counter="27" data-suffix="+">27+</span>
-        <span class="stat-label">Années d'expérience combinée</span>
+        <span class="stat-label" data-i18n="index.stats.years">Années d'expérience combinée</span>
       </div>
       <div class="stat-item animate-in stagger-1">
         <span class="stat-number" data-counter="500" data-suffix="+">500+</span>
-        <span class="stat-label">Toitures réalisées</span>
+        <span class="stat-label" data-i18n="index.stats.roofs">Toitures réalisées</span>
       </div>
       <div class="stat-item animate-in stagger-2">
         <span class="stat-number" data-counter="3">3</span>
-        <span class="stat-label">Régions desservies</span>
+        <span class="stat-label" data-i18n="index.stats.regions">Régions desservies</span>
       </div>
       <div class="stat-item animate-in stagger-3">
         <span class="stat-number" style="font-size:clamp(2rem,4vw,3rem)">24/7</span>
-        <span class="stat-label">Service d'urgence</span>
+        <span class="stat-label" data-i18n="index.stats.emergency">Service d'urgence</span>
       </div>
     </div>
   </div>
@@ -114,57 +117,57 @@
 <section class="section section--gray" id="services" aria-labelledby="services-title">
   <div class="container">
     <div class="section-header center animate-in">
-      <span class="section-label">Ce que nous faisons</span>
-      <h2 id="services-title">Nos Services</h2>
-      <p>Solutions complètes pour tous vos besoins de toiture</p>
+      <span class="section-label" data-i18n="index.services.label">Ce que nous faisons</span>
+      <h2 id="services-title" data-i18n="index.services.title">Nos Services</h2>
+      <p data-i18n="index.services.subtitle">Solutions complètes pour tous vos besoins de toiture</p>
     </div>
     <div class="services-grid">
       <article class="service-card animate-in stagger-1">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
-        <h3>Réfection de toiture</h3>
-        <p>Nous redonnons vie à votre toiture grâce à une réfection complète et durable adaptée au climat québécois.</p>
+        <h3 data-i18n="index.services.s1.title">Réfection de toiture</h3>
+        <p data-i18n="index.services.s1.desc">Nous redonnons vie à votre toiture grâce à une réfection complète et durable adaptée au climat québécois.</p>
       </article>
       <article class="service-card animate-in stagger-2">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
         </div>
-        <h3>Toiture neuve</h3>
-        <p>Résidentiel &amp; commercial. Installations solides et esthétiques adaptées à votre bâtiment et vos besoins.</p>
+        <h3 data-i18n="index.services.s2.title">Toiture neuve</h3>
+        <p data-i18n="index.services.s2.desc">Résidentiel &amp; commercial. Installations solides et esthétiques adaptées à votre bâtiment et vos besoins.</p>
       </article>
       <article class="service-card animate-in stagger-3">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
         </div>
-        <h3>Réparation</h3>
-        <p>Infiltration ou bardeaux abîmés ? Intervention rapide et efficace pour prolonger la vie de votre toit.</p>
+        <h3 data-i18n="index.services.s3.title">Réparation</h3>
+        <p data-i18n="index.services.s3.desc">Infiltration ou bardeaux abîmés ? Intervention rapide et efficace pour prolonger la vie de votre toit.</p>
       </article>
       <article class="service-card animate-in stagger-4">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </div>
-        <h3>Inspection</h3>
-        <p>Détectez les problèmes avant qu'ils ne coûtent cher. Service d'inspection professionnel certifié RBQ.</p>
+        <h3 data-i18n="index.services.s4.title">Inspection</h3>
+        <p data-i18n="index.services.s4.desc">Détectez les problèmes avant qu'ils ne coûtent cher. Service d'inspection professionnel certifié RBQ.</p>
       </article>
       <article class="service-card animate-in stagger-5">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" opacity=".3" fill="currentColor"/><path d="M8 3C5 5 3 8.5 3 12M16 3c3 2 5 5.5 5 9"/><path d="M12 6v6l3 3"/></svg>
         </div>
-        <h3>Déneigement</h3>
-        <p>Protection contre les accumulations de neige et de glace. Service sécuritaire tout au long de l'hiver.</p>
+        <h3 data-i18n="index.services.s5.title">Déneigement</h3>
+        <p data-i18n="index.services.s5.desc">Protection contre les accumulations de neige et de glace. Service sécuritaire tout au long de l'hiver.</p>
       </article>
       <article class="service-card emergency animate-in stagger-6">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
-        <h3>Urgence 24/7</h3>
-        <p>En cas de fuite ou dommage imprévu, notre équipe intervient rapidement — jour et nuit, 7 jours sur 7.</p>
+        <h3 data-i18n="index.services.s6.title">Urgence 24/7</h3>
+        <p data-i18n="index.services.s6.desc">En cas de fuite ou dommage imprévu, notre équipe intervient rapidement — jour et nuit, 7 jours sur 7.</p>
         <a href="tel:+15146057114" class="btn btn-primary" style="margin-top:1.25rem">514-605-7114</a>
       </article>
     </div>
     <div class="text-center" style="margin-top:3rem">
-      <a href="services.html" class="btn btn-outline-red btn-lg animate-in">Voir tous nos services →</a>
+      <a href="services.html" class="btn btn-outline-red btn-lg animate-in" data-i18n="index.services.cta">Voir tous nos services →</a>
     </div>
   </div>
 </section>
@@ -261,36 +264,40 @@
   </div>
 </section>
 
-<!-- MATÉRIAUX APERÇU -->
-<section class="section section--white" id="materiaux" aria-labelledby="mat-title">
+<!-- RÉALISATIONS SLIDESHOW -->
+<section class="section section--white" id="realisations" aria-labelledby="real-title">
   <div class="container">
     <div class="section-header center animate-in">
-      <span class="section-label">Matériaux de qualité</span>
-      <h2 id="mat-title">Les meilleurs fabricants</h2>
-      <p>Nous utilisons exclusivement des matériaux certifiés, durables et adaptés au climat québécois</p>
+      <span class="section-label" data-i18n="index.real.label">Nos réalisations</span>
+      <h2 id="real-title" data-i18n="index.real.title">Nos Travaux</h2>
+      <p data-i18n="index.real.subtitle">Quelques-unes de nos réalisations récentes dans la région des Laurentides.</p>
     </div>
-    <div class="grid-3" style="margin-bottom:3rem">
-      <div class="card text-center animate-in stagger-1" style="padding:2.5rem 2rem">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:3rem;color:var(--black);margin-bottom:0.75rem">BP</div>
-        <h3 style="margin-bottom:0.5rem">Building Products</h3>
-        <p style="color:var(--midgray);font-size:0.9rem;margin-bottom:1.25rem">Le leader canadien en bardeaux d'asphalte. Gammes variées avec garanties jusqu'à 50 ans.</p>
-        <a href="materiaux.html" class="btn btn-outline-red">En savoir plus</a>
+    <div class="slideshow animate-in stagger-1">
+      <div class="slideshow-track">
+        <div class="slide active">
+          <img src="Assets/SlideShow/New_Roof_On_Old_House.png" alt="Réfection de toiture sur maison ancienne — Groupe Mtech" loading="lazy">
+        </div>
+        <div class="slide">
+          <img src="Assets/SlideShow/New_Roof_On_New_House.png" alt="Installation de toiture neuve — Groupe Mtech" loading="lazy">
+        </div>
+        <div class="slide">
+          <img src="Assets/SlideShow/house1.jpg" alt="Toiture résidentielle complétée — Groupe Mtech" loading="lazy">
+        </div>
+        <div class="slide">
+          <img src="Assets/SlideShow/house6b.jpg" alt="Réalisation de toiture — Groupe Mtech" loading="lazy">
+        </div>
       </div>
-      <div class="card text-center animate-in stagger-2" style="padding:2.5rem 2rem">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:3rem;color:var(--black);margin-bottom:0.75rem">IKO</div>
-        <h3 style="margin-bottom:0.5rem">IKO Industries</h3>
-        <p style="color:var(--midgray);font-size:0.9rem;margin-bottom:1.25rem">Dynasty &amp; Cambridge — bardeaux architecturaux haute performance pour tout climat.</p>
-        <a href="materiaux.html" class="btn btn-outline-red">En savoir plus</a>
-      </div>
-      <div class="card text-center animate-in stagger-3" style="padding:2.5rem 2rem">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:3rem;color:var(--black);margin-bottom:0.75rem">GAF</div>
-        <h3 style="margin-bottom:0.5rem">GAF Materials</h3>
-        <p style="color:var(--midgray);font-size:0.9rem;margin-bottom:1.25rem">Leader nord-américain reconnu pour la qualité et la durabilité de ses bardeaux.</p>
-        <a href="materiaux.html" class="btn btn-outline-red">En savoir plus</a>
+      <button class="slide-btn slide-prev" data-i18n-aria="index.real.prev" aria-label="Image précédente">&#8249;</button>
+      <button class="slide-btn slide-next" data-i18n-aria="index.real.next" aria-label="Image suivante">&#8250;</button>
+      <div class="slide-dots">
+        <button class="dot active" aria-label="Image 1"></button>
+        <button class="dot" aria-label="Image 2"></button>
+        <button class="dot" aria-label="Image 3"></button>
+        <button class="dot" aria-label="Image 4"></button>
       </div>
     </div>
-    <div class="text-center animate-in">
-      <a href="materiaux.html" class="btn btn-outline-red btn-lg">Voir nos matériaux →</a>
+    <div class="text-center animate-in" style="margin-top:2rem">
+      <a href="realisations.html" class="btn btn-outline-red btn-lg" data-i18n="index.real.cta">Voir toutes nos réalisations →</a>
     </div>
   </div>
 </section>
@@ -298,10 +305,10 @@
 <!-- CTA FINAL -->
 <section class="cta-section" aria-label="Appel à l'action">
   <div class="container text-center animate-in">
-    <h2>Prêt à refaire votre toiture ?</h2>
-    <p>Réponse garantie en moins de 24h. Soumission 100&nbsp;% gratuite et sans engagement.</p>
-    <a href="soumission.html" class="btn btn-dark btn-lg">Obtenir ma soumission gratuite</a>
-    <div class="cta-phone">Ou appelez-nous : <a href="tel:+15142473491">514-247-3491</a></div>
+    <h2 data-i18n="index.cta.title">Prêt à refaire votre toiture ?</h2>
+    <p data-i18n="index.cta.p">Réponse garantie en moins de 24h. Soumission 100&nbsp;% gratuite et sans engagement.</p>
+    <a href="soumission.html" class="btn btn-dark btn-lg" data-i18n="index.cta.btn">Obtenir ma soumission gratuite</a>
+    <div class="cta-phone"><span data-i18n="index.cta.phone">Ou appelez-nous :</span> <a href="tel:+15142473491">514-247-3491</a></div>
   </div>
 </section>
 
@@ -320,30 +327,31 @@
         </div>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <h4 data-i18n="footer.nav">Navigation</h4>
         <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="a-propos.html">À propos</a></li>
-          <li><a href="materiaux.html">Matériaux</a></li>
-          <li><a href="emploi.html">Emploi</a></li>
-          <li><a href="zones.html">Zones desservies</a></li>
-          <li><a href="soumission.html">Soumission gratuite</a></li>
+          <li><a href="index.html"        data-i18n="footer.nav.home">Accueil</a></li>
+          <li><a href="services.html"     data-i18n="footer.nav.services">Services</a></li>
+          <li><a href="a-propos.html"     data-i18n="footer.nav.about">À propos</a></li>
+          <li><a href="materiaux.html"    data-i18n="footer.nav.materials">Matériaux</a></li>
+          <li><a href="realisations.html" data-i18n="footer.nav.realizations">Réalisations</a></li>
+          <li><a href="emploi.html"       data-i18n="footer.nav.jobs">Emploi</a></li>
+          <li><a href="zones.html"        data-i18n="footer.nav.zones">Zones desservies</a></li>
+          <li><a href="soumission.html"   data-i18n="footer.nav.quote">Soumission gratuite</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Services</h4>
+        <h4 data-i18n="footer.services">Services</h4>
         <ul>
-          <li><a href="services.html#refection">Réfection de toiture</a></li>
-          <li><a href="services.html#neuve">Toiture neuve</a></li>
-          <li><a href="services.html#reparation">Réparation</a></li>
-          <li><a href="services.html#inspection">Inspection</a></li>
-          <li><a href="services.html#deneigement">Déneigement</a></li>
-          <li><a href="services.html#urgence">Urgence 24/7</a></li>
+          <li><a href="services.html#refection"  data-i18n="footer.svc.refection">Réfection de toiture</a></li>
+          <li><a href="services.html#neuve"      data-i18n="footer.svc.neuve">Toiture neuve</a></li>
+          <li><a href="services.html#reparation" data-i18n="footer.svc.reparation">Réparation</a></li>
+          <li><a href="services.html#inspection" data-i18n="footer.svc.inspection">Inspection</a></li>
+          <li><a href="services.html#deneigement"data-i18n="footer.svc.deneigement">Déneigement</a></li>
+          <li><a href="services.html#urgence"    data-i18n="footer.svc.urgence">Urgence 24/7</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h4 data-i18n="footer.contact">Contact</h4>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <a href="tel:+15142473491">514-247-3491</a>
@@ -363,7 +371,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Groupe Mtech Inc. | Tous droits réservés | Licence RBQ 5868-4754-01</p>
+      <p data-i18n="footer.copyright">© 2025 Groupe Mtech Inc. | Tous droits réservés | Licence RBQ 5868-4754-01</p>
       <div style="display:flex;align-items:center;gap:1.25rem">
         <a href="https://www.laurierweb.ca" target="_blank" rel="noopener" aria-label="Site réalisé par LaurierWeb" style="display:flex;flex-direction:column;align-items:center;gap:0.2rem;opacity:0.7;transition:opacity 0.3s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
           <span style="color:rgba(255,255,255,0.6);font-size:0.65rem;letter-spacing:0.05em;white-space:nowrap">Site réalisé par</span>
@@ -385,5 +393,6 @@
 </a>
 
 <script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
 </body>
 </html>

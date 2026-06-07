@@ -138,4 +138,31 @@
     sections.forEach(s => spyObserver.observe(s));
   }
 
+  /* ── Slideshow ─────────────────────────────────────────────── */
+  const slideshow = document.querySelector('.slideshow');
+  if (slideshow) {
+    const slides = slideshow.querySelectorAll('.slide');
+    const dots   = slideshow.querySelectorAll('.dot');
+    let current  = 0;
+    let timer;
+
+    function goTo(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+    function startAuto() { timer = setInterval(next, 4500); }
+    function resetAuto() { clearInterval(timer); startAuto(); }
+
+    slideshow.querySelector('.slide-next')?.addEventListener('click', () => { next(); resetAuto(); });
+    slideshow.querySelector('.slide-prev')?.addEventListener('click', () => { prev(); resetAuto(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetAuto(); }));
+
+    startAuto();
+  }
+
 })();

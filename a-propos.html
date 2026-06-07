@@ -30,25 +30,29 @@
       <img src="Assets/Logo/Logo Transparent.png" alt="Logo Groupe Mtech Inc. — Couvreur Laurentides">
     </a>
     <nav class="nav-links" aria-label="Navigation principale">
-      <a href="index.html"     data-nav>Accueil</a>
-      <a href="services.html"  data-nav>Services</a>
-      <a href="a-propos.html"  data-nav>À propos</a>
-      <a href="materiaux.html" data-nav>Matériaux</a>
-      <a href="emploi.html"    data-nav>Emploi</a>
+      <a href="index.html"        data-nav data-i18n="nav.home">Accueil</a>
+      <a href="services.html"     data-nav data-i18n="nav.services">Services</a>
+      <a href="a-propos.html"     data-nav data-i18n="nav.about">À propos</a>
+      <a href="materiaux.html"    data-nav data-i18n="nav.materials">Matériaux</a>
+      <a href="realisations.html" data-nav data-i18n="nav.realizations">Réalisations</a>
+      <a href="emploi.html"       data-nav data-i18n="nav.jobs">Emploi</a>
     </nav>
-    <a href="soumission.html" class="btn btn-primary nav-cta">Soumission gratuite</a>
-    <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <a href="soumission.html" class="btn btn-primary nav-cta" data-i18n="nav.quote">Soumission gratuite</a>
+    <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
+    <button class="hamburger" data-i18n-aria="nav.open" aria-label="Ouvrir le menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 <nav class="nav-mobile-overlay" aria-label="Menu mobile">
-  <a href="index.html"     data-nav>Accueil</a>
-  <a href="services.html"  data-nav>Services</a>
-  <a href="a-propos.html"  data-nav>À propos</a>
-  <a href="materiaux.html" data-nav>Matériaux</a>
-  <a href="emploi.html"    data-nav>Emploi</a>
-  <a href="soumission.html" class="btn btn-primary btn-lg">Soumission gratuite</a>
+  <a href="index.html"        data-nav data-i18n="nav.home">Accueil</a>
+  <a href="services.html"     data-nav data-i18n="nav.services">Services</a>
+  <a href="a-propos.html"     data-nav data-i18n="nav.about">À propos</a>
+  <a href="materiaux.html"    data-nav data-i18n="nav.materials">Matériaux</a>
+  <a href="realisations.html" data-nav data-i18n="nav.realizations">Réalisations</a>
+  <a href="emploi.html"       data-nav data-i18n="nav.jobs">Emploi</a>
+  <a href="soumission.html" class="btn btn-primary btn-lg" data-i18n="nav.quote">Soumission gratuite</a>
+  <button class="lang-toggle-mobile" aria-label="Switch language">EN</button>
 </nav>
 
 <main>
@@ -57,13 +61,13 @@
 <section class="page-hero" aria-labelledby="page-title">
   <div class="container">
     <div class="breadcrumb" aria-label="Fil d'Ariane">
-      <a href="index.html">Accueil</a>
+      <a href="index.html" data-i18n="common.breadcrumb.home">Accueil</a>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      <span>À propos</span>
+      <span data-i18n="about.breadcrumb">À propos</span>
     </div>
-    <span class="section-label">Notre histoire</span>
-    <h1 id="page-title">À Propos de Nous</h1>
-    <p>Groupe Mtech Inc. — des couvreurs passionnés qui ont bâti leur réputation sur la qualité et la confiance.</p>
+    <span class="section-label" data-i18n="about.hero.label">Notre histoire</span>
+    <h1 id="page-title" data-i18n="about.hero.title">À Propos de Nous</h1>
+    <p data-i18n="about.hero.p">Groupe Mtech Inc. — des couvreurs passionnés qui ont bâti leur réputation sur la qualité et la confiance.</p>
   </div>
 </section>
 
@@ -72,15 +76,15 @@
   <div class="container">
     <div class="grid-2" style="align-items:center;gap:4rem">
       <div class="animate-in">
-        <span class="section-label">Notre fondation</span>
-        <h2 id="histoire-title">Bâtis sur l'expérience, guidés par la qualité</h2>
+        <span class="section-label" data-i18n="about.hist.label">Notre fondation</span>
+        <h2 id="histoire-title" data-i18n="about.hist.title">Bâtis sur l'expérience, guidés par la qualité</h2>
         <div class="divider"></div>
-        <p>Chez Groupe Mtech, nous mettons notre expertise et notre passion au service de vos projets de toiture. Avec plus de 27 ans d'expérience combinée, nos associés <strong>Mike et Anthony</strong> ont bâti une réputation solide dans le domaine de la couverture résidentielle et commerciale dans les Laurentides.</p>
-        <p>Fondée à Saint-Hippolyte, notre entreprise est profondément ancrée dans la communauté des Laurentides. Nous desservons Montréal, la Rive-Nord et toute la région des Laurentides avec le même niveau de professionnalisme et d'engagement que si nous travaillions chez nos propres voisins.</p>
-        <p>Notre spécialité : l'installation et la réfection de toitures en bardeaux d'asphalte, reconnues pour leur durabilité et leur excellent rapport qualité-prix dans le contexte climatique québécois.</p>
+        <p data-i18n="about.hist.p1">Chez Groupe Mtech, nous mettons notre expertise et notre passion au service de vos projets de toiture. Avec plus de 27 ans d'expérience combinée, nos associés <strong>Mike et Anthony</strong> ont bâti une réputation solide dans le domaine de la couverture résidentielle et commerciale dans les Laurentides.</p>
+        <p data-i18n="about.hist.p2">Fondée à Saint-Hippolyte, notre entreprise est profondément ancrée dans la communauté des Laurentides. Nous desservons Montréal, la Rive-Nord et toute la région des Laurentides avec le même niveau de professionnalisme et d'engagement que si nous travaillions chez nos propres voisins.</p>
+        <p data-i18n="about.hist.p3">Notre spécialité : l'installation et la réfection de toitures en bardeaux d'asphalte, reconnues pour leur durabilité et leur excellent rapport qualité-prix dans le contexte climatique québécois.</p>
         <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
-          <a href="soumission.html" class="btn btn-primary">Obtenir une soumission</a>
-          <a href="services.html" class="btn btn-outline-red">Nos services</a>
+          <a href="soumission.html" class="btn btn-primary" data-i18n="about.hist.cta1">Obtenir une soumission</a>
+          <a href="services.html" class="btn btn-outline-red" data-i18n="about.hist.cta2">Nos services</a>
         </div>
       </div>
       <div class="animate-in stagger-2">
@@ -94,31 +98,31 @@
 <section class="section section--gray" aria-labelledby="engage-title">
   <div class="container">
     <div class="section-header center animate-in">
-      <span class="section-label">Nos valeurs</span>
-      <h2 id="engage-title">Nos engagements envers vous</h2>
-      <p>Chaque projet reflète nos valeurs fondamentales de qualité, d'intégrité et de respect du client</p>
+      <span class="section-label" data-i18n="about.engage.label">Nos valeurs</span>
+      <h2 id="engage-title" data-i18n="about.engage.title">Nos engagements envers vous</h2>
+      <p data-i18n="about.engage.p">Chaque projet reflète nos valeurs fondamentales de qualité, d'intégrité et de respect du client</p>
     </div>
     <div class="grid-3">
       <div class="card animate-in stagger-1">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h3>Qualité et souci du détail</h3>
-        <p>Chaque projet est réalisé avec précision et rigueur. Nous ne faisons aucun compromis sur la qualité des matériaux ni sur les méthodes d'installation.</p>
+        <h3 data-i18n="about.engage.c1.title">Qualité et souci du détail</h3>
+        <p data-i18n="about.engage.c1.desc">Chaque projet est réalisé avec précision et rigueur. Nous ne faisons aucun compromis sur la qualité des matériaux ni sur les méthodes d'installation.</p>
       </div>
       <div class="card animate-in stagger-2">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h3>Satisfaction client</h3>
-        <p>Nous vous accompagnons avant, pendant et après les travaux. Votre satisfaction est notre priorité absolue, du premier contact à la livraison finale.</p>
+        <h3 data-i18n="about.engage.c2.title">Satisfaction client</h3>
+        <p data-i18n="about.engage.c2.desc">Nous vous accompagnons avant, pendant et après les travaux. Votre satisfaction est notre priorité absolue, du premier contact à la livraison finale.</p>
       </div>
       <div class="card animate-in stagger-3">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
-        <h3>Professionnalisme et fiabilité</h3>
-        <p>Nous respectons nos engagements : délais, budget et qualité. Vous pouvez compter sur nous pour être là quand nous l'avons promis.</p>
+        <h3 data-i18n="about.engage.c3.title">Professionnalisme et fiabilité</h3>
+        <p data-i18n="about.engage.c3.desc">Nous respectons nos engagements : délais, budget et qualité. Vous pouvez compter sur nous pour être là quand nous l'avons promis.</p>
       </div>
     </div>
   </div>
@@ -208,10 +212,10 @@
 <!-- CTA -->
 <section class="cta-section" aria-label="Appel à l'action">
   <div class="container text-center animate-in">
-    <h2>Prêt à travailler avec nous ?</h2>
-    <p>Obtenez une soumission gratuite et découvrez pourquoi des centaines de clients nous font confiance.</p>
-    <a href="soumission.html" class="btn btn-dark btn-lg">Obtenir ma soumission gratuite</a>
-    <div class="cta-phone">Ou appelez-nous : <a href="tel:+15142473491">514-247-3491</a></div>
+    <h2 data-i18n="about.cta.title">Prêt à travailler avec nous ?</h2>
+    <p data-i18n="about.cta.p">Obtenez une soumission gratuite et découvrez pourquoi des centaines de clients nous font confiance.</p>
+    <a href="soumission.html" class="btn btn-dark btn-lg" data-i18n="about.cta.btn">Obtenir ma soumission gratuite</a>
+    <div class="cta-phone"><span data-i18n="about.cta.phone">Ou appelez-nous :</span> <a href="tel:+15142473491">514-247-3491</a></div>
   </div>
 </section>
 
@@ -223,44 +227,45 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="Assets/Logo/Logo Transparent.png" alt="Logo Groupe Mtech Inc.">
-        <p>Votre couvreur de confiance dans les Laurentides.<br>Qualité, durabilité et professionnalisme depuis plus de 27 ans.</p>
+        <p data-i18n="footer.brand">Votre couvreur de confiance dans les Laurentides.<br>Qualité, durabilité et professionnalisme depuis plus de 27 ans.</p>
         <div class="footer-rbq">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
           Licence RBQ 5868-4754-01
         </div>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <h4 data-i18n="footer.nav">Navigation</h4>
         <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="a-propos.html">À propos</a></li>
-          <li><a href="materiaux.html">Matériaux</a></li>
-          <li><a href="emploi.html">Emploi</a></li>
-          <li><a href="zones.html">Zones desservies</a></li>
-          <li><a href="soumission.html">Soumission gratuite</a></li>
+          <li><a href="index.html"        data-i18n="footer.nav.home">Accueil</a></li>
+          <li><a href="services.html"     data-i18n="footer.nav.services">Services</a></li>
+          <li><a href="a-propos.html"     data-i18n="footer.nav.about">À propos</a></li>
+          <li><a href="materiaux.html"    data-i18n="footer.nav.materials">Matériaux</a></li>
+          <li><a href="realisations.html" data-i18n="footer.nav.realizations">Réalisations</a></li>
+          <li><a href="emploi.html"       data-i18n="footer.nav.jobs">Emploi</a></li>
+          <li><a href="zones.html"        data-i18n="footer.nav.zones">Zones desservies</a></li>
+          <li><a href="soumission.html"   data-i18n="footer.nav.quote">Soumission gratuite</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Services</h4>
+        <h4 data-i18n="footer.services">Services</h4>
         <ul>
-          <li><a href="services.html#refection">Réfection de toiture</a></li>
-          <li><a href="services.html#neuve">Toiture neuve</a></li>
-          <li><a href="services.html#reparation">Réparation</a></li>
-          <li><a href="services.html#inspection">Inspection</a></li>
-          <li><a href="services.html#deneigement">Déneigement</a></li>
-          <li><a href="services.html#urgence">Urgence 24/7</a></li>
+          <li><a href="services.html#refection"   data-i18n="footer.svc.refection">Réfection de toiture</a></li>
+          <li><a href="services.html#neuve"       data-i18n="footer.svc.neuve">Toiture neuve</a></li>
+          <li><a href="services.html#reparation"  data-i18n="footer.svc.reparation">Réparation</a></li>
+          <li><a href="services.html#inspection"  data-i18n="footer.svc.inspection">Inspection</a></li>
+          <li><a href="services.html#deneigement" data-i18n="footer.svc.deneigement">Déneigement</a></li>
+          <li><a href="services.html#urgence"     data-i18n="footer.svc.urgence">Urgence 24/7</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h4 data-i18n="footer.contact">Contact</h4>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <a href="tel:+15142473491">514-247-3491</a>
         </div>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          <a href="tel:+15146057114">514-605-7114 (Urgence)</a>
+          <a href="tel:+15146057114" data-i18n="footer.emergency">514-605-7114 (Urgence)</a>
         </div>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -273,10 +278,10 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Groupe Mtech Inc. | Tous droits réservés | Licence RBQ 5868-4754-01</p>
+      <p data-i18n="footer.copyright">© 2025 Groupe Mtech Inc. | Tous droits réservés | Licence RBQ 5868-4754-01</p>
       <div style="display:flex;align-items:center;gap:1.25rem">
         <a href="https://www.laurierweb.ca" target="_blank" rel="noopener" aria-label="Site réalisé par LaurierWeb" style="display:flex;flex-direction:column;align-items:center;gap:0.2rem;opacity:0.7;transition:opacity 0.3s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
-          <span style="color:rgba(255,255,255,0.6);font-size:0.65rem;letter-spacing:0.05em;white-space:nowrap">Site réalisé par</span>
+          <span style="color:rgba(255,255,255,0.6);font-size:0.65rem;letter-spacing:0.05em;white-space:nowrap" data-i18n="footer.madeby">Site réalisé par</span>
           <img src="Assets/Logo/logolaurier.png" alt="LaurierWeb — Création de sites web" style="height:50px;width:auto">
         </a>
         <div class="footer-social">
@@ -291,9 +296,10 @@
 
 <a href="tel:+15146057114" class="urgency-float" aria-label="Urgence toiture 514-605-7114">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-  Urgence 24/7
+  <span data-i18n="common.emergency">Urgence 24/7</span>
 </a>
 
 <script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
 </body>
 </html>

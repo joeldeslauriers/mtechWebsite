@@ -30,25 +30,29 @@
       <img src="Assets/Logo/Logo Transparent.png" alt="Logo Groupe Mtech Inc. — Couvreur Laurentides">
     </a>
     <nav class="nav-links" aria-label="Navigation principale">
-      <a href="index.html"     data-nav>Accueil</a>
-      <a href="services.html"  data-nav>Services</a>
-      <a href="a-propos.html"  data-nav>À propos</a>
-      <a href="materiaux.html" data-nav>Matériaux</a>
-      <a href="emploi.html"    data-nav>Emploi</a>
+      <a href="index.html"        data-nav data-i18n="nav.home">Accueil</a>
+      <a href="services.html"     data-nav data-i18n="nav.services">Services</a>
+      <a href="a-propos.html"     data-nav data-i18n="nav.about">À propos</a>
+      <a href="materiaux.html"    data-nav data-i18n="nav.materials">Matériaux</a>
+      <a href="realisations.html" data-nav data-i18n="nav.realizations">Réalisations</a>
+      <a href="emploi.html"       data-nav data-i18n="nav.jobs">Emploi</a>
     </nav>
-    <a href="soumission.html" class="btn btn-primary nav-cta">Soumission gratuite</a>
-    <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <a href="soumission.html" class="btn btn-primary nav-cta" data-i18n="nav.quote">Soumission gratuite</a>
+    <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
+    <button class="hamburger" data-i18n-aria="nav.open" aria-label="Ouvrir le menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 <nav class="nav-mobile-overlay" aria-label="Menu mobile">
-  <a href="index.html"     data-nav>Accueil</a>
-  <a href="services.html"  data-nav>Services</a>
-  <a href="a-propos.html"  data-nav>À propos</a>
-  <a href="materiaux.html" data-nav>Matériaux</a>
-  <a href="emploi.html"    data-nav>Emploi</a>
-  <a href="soumission.html" class="btn btn-primary btn-lg">Soumission gratuite</a>
+  <a href="index.html"        data-nav data-i18n="nav.home">Accueil</a>
+  <a href="services.html"     data-nav data-i18n="nav.services">Services</a>
+  <a href="a-propos.html"     data-nav data-i18n="nav.about">À propos</a>
+  <a href="materiaux.html"    data-nav data-i18n="nav.materials">Matériaux</a>
+  <a href="realisations.html" data-nav data-i18n="nav.realizations">Réalisations</a>
+  <a href="emploi.html"       data-nav data-i18n="nav.jobs">Emploi</a>
+  <a href="soumission.html" class="btn btn-primary btn-lg" data-i18n="nav.quote">Soumission gratuite</a>
+  <button class="lang-toggle-mobile" aria-label="Switch language">EN</button>
 </nav>
 
 <main>
@@ -57,13 +61,13 @@
 <section class="page-hero" aria-labelledby="page-title">
   <div class="container">
     <div class="breadcrumb" aria-label="Fil d'Ariane">
-      <a href="index.html">Accueil</a>
+      <a href="index.html" data-i18n="common.breadcrumb.home">Accueil</a>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      <span>Emploi</span>
+      <span data-i18n="jobs.breadcrumb">Emploi</span>
     </div>
-    <span class="section-label">Carrières chez Mtech</span>
-    <h1 id="page-title">Joignez-vous à notre équipe</h1>
-    <p>Nous sommes toujours à la recherche de personnes motivées et professionnelles pour agrandir notre équipe dans les Laurentides.</p>
+    <span class="section-label" data-i18n="jobs.hero.label">Carrières chez Mtech</span>
+    <h1 id="page-title" data-i18n="jobs.hero.title">Joignez-vous à notre équipe</h1>
+    <p data-i18n="jobs.hero.p">Nous sommes toujours à la recherche de personnes motivées et professionnelles pour agrandir notre équipe dans les Laurentides.</p>
   </div>
 </section>
 
@@ -242,49 +246,49 @@
             <input type="checkbox" name="botcheck" style="display:none">
             <div class="form-row">
               <div class="form-group">
-                <label for="prenom">Prénom *</label>
-                <input type="text" id="prenom" name="prenom" required autocomplete="given-name" placeholder="Votre prénom">
+                <label for="prenom" data-i18n="jobs.form.fname">Prénom *</label>
+                <input type="text" id="prenom" name="prenom" required autocomplete="given-name" placeholder="Votre prénom" data-i18n-placeholder="jobs.ph.fname">
               </div>
               <div class="form-group">
-                <label for="nom">Nom *</label>
-                <input type="text" id="nom" name="nom" required autocomplete="family-name" placeholder="Votre nom">
+                <label for="nom" data-i18n="jobs.form.lname">Nom *</label>
+                <input type="text" id="nom" name="nom" required autocomplete="family-name" placeholder="Votre nom" data-i18n-placeholder="jobs.ph.lname">
               </div>
             </div>
             <div class="form-group">
-              <label for="email">Adresse courriel *</label>
-              <input type="email" id="email" name="email" required autocomplete="email" placeholder="votre@email.com">
+              <label for="email" data-i18n="jobs.form.email">Adresse courriel *</label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="votre@email.com" data-i18n-placeholder="jobs.ph.email">
             </div>
             <div class="form-group">
-              <label for="telephone">Téléphone *</label>
-              <input type="tel" id="telephone" name="telephone" required autocomplete="tel" placeholder="514-000-0000">
+              <label for="telephone" data-i18n="jobs.form.phone">Téléphone *</label>
+              <input type="tel" id="telephone" name="telephone" required autocomplete="tel" placeholder="514-000-0000" data-i18n-placeholder="jobs.ph.phone">
             </div>
             <div class="form-group">
-              <label for="poste">Poste désiré *</label>
+              <label for="poste" data-i18n="jobs.form.position">Poste désiré *</label>
               <select id="poste" name="poste" required>
-                <option value="" disabled selected>Sélectionner un poste</option>
-                <option value="maitre-couvreur">Maître couvreur</option>
-                <option value="chef-equipe">Chef d'équipe</option>
-                <option value="apprenti">Apprenti couvreur</option>
-                <option value="manouevre">Manœuvre de chantier</option>
-                <option value="autre">Autre / Spontanée</option>
+                <option value="" disabled selected data-i18n="jobs.form.pos.select">Sélectionner un poste</option>
+                <option value="maitre-couvreur" data-i18n="jobs.form.pos.master">Maître couvreur</option>
+                <option value="chef-equipe" data-i18n="jobs.form.pos.chief">Chef d'équipe</option>
+                <option value="apprenti" data-i18n="jobs.form.pos.apprentice">Apprenti couvreur</option>
+                <option value="manouevre" data-i18n="jobs.form.pos.worker">Manœuvre de chantier</option>
+                <option value="autre" data-i18n="jobs.form.pos.other">Autre / Spontanée</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="disponibilite">Date d'entrée disponible</label>
+              <label for="disponibilite" data-i18n="jobs.form.available">Date d'entrée disponible</label>
               <input type="date" id="disponibilite" name="disponibilite">
             </div>
             <div class="form-group">
-              <label for="cv">CV (optionnel — PDF, DOC, DOCX)</label>
+              <label for="cv" data-i18n="jobs.form.cv">CV (optionnel — PDF, DOC, DOCX)</label>
               <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" style="padding:.6rem 1rem;cursor:pointer">
             </div>
             <div class="form-group">
-              <label for="message">Message / Présentation</label>
-              <textarea id="message" name="message" placeholder="Parlez-nous un peu de vous, votre expérience, pourquoi vous souhaitez rejoindre Groupe Mtech..."></textarea>
+              <label for="message" data-i18n="jobs.form.message">Message / Présentation</label>
+              <textarea id="message" name="message" placeholder="Parlez-nous un peu de vous, votre expérience, pourquoi vous souhaitez rejoindre Groupe Mtech..." data-i18n-placeholder="jobs.ph.message"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center" data-i18n="jobs.form.submit">
               Envoyer ma candidature →
             </button>
-            <p class="form-note">Réponse garantie dans les 48h ouvrables</p>
+            <p class="form-note" data-i18n="jobs.form.note">Réponse garantie dans les 48h ouvrables</p>
           </form>
         </div>
       </div>
@@ -295,9 +299,9 @@
 <!-- CTA -->
 <section class="cta-section" aria-label="Appel à l'action">
   <div class="container text-center animate-in">
-    <h2>Des questions sur nos postes ?</h2>
-    <p>Appelez-nous directement — nous serons heureux de vous répondre.</p>
-    <a href="tel:+15142473491" class="btn btn-dark btn-lg">Appeler le 514-247-3491</a>
+    <h2 data-i18n="jobs.cta.title">Des questions sur nos postes ?</h2>
+    <p data-i18n="jobs.cta.p">Appelez-nous directement — nous serons heureux de vous répondre.</p>
+    <a href="tel:+15142473491" class="btn btn-dark btn-lg" data-i18n="jobs.cta.btn">Appeler le 514-247-3491</a>
   </div>
 </section>
 
@@ -309,22 +313,23 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="Assets/Logo/Logo Transparent.png" alt="Logo Groupe Mtech Inc.">
-        <p>Votre couvreur de confiance dans les Laurentides.<br>Qualité, durabilité et professionnalisme depuis plus de 27 ans.</p>
+        <p data-i18n="footer.brand">Votre couvreur de confiance dans les Laurentides.<br>Qualité, durabilité et professionnalisme depuis plus de 27 ans.</p>
         <div class="footer-rbq">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
           Licence RBQ 5868-4754-01
         </div>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <h4 data-i18n="footer.nav">Navigation</h4>
         <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="a-propos.html">À propos</a></li>
-          <li><a href="materiaux.html">Matériaux</a></li>
-          <li><a href="emploi.html">Emploi</a></li>
-          <li><a href="zones.html">Zones desservies</a></li>
-          <li><a href="soumission.html">Soumission gratuite</a></li>
+          <li><a href="index.html"        data-i18n="footer.nav.home">Accueil</a></li>
+          <li><a href="services.html"     data-i18n="footer.nav.services">Services</a></li>
+          <li><a href="a-propos.html"     data-i18n="footer.nav.about">À propos</a></li>
+          <li><a href="materiaux.html"    data-i18n="footer.nav.materials">Matériaux</a></li>
+          <li><a href="realisations.html" data-i18n="footer.nav.realizations">Réalisations</a></li>
+          <li><a href="emploi.html"       data-i18n="footer.nav.jobs">Emploi</a></li>
+          <li><a href="zones.html"        data-i18n="footer.nav.zones">Zones desservies</a></li>
+          <li><a href="soumission.html"   data-i18n="footer.nav.quote">Soumission gratuite</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -337,7 +342,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h4 data-i18n="footer.contact">Contact</h4>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <a href="tel:+15142473491">514-247-3491</a>
@@ -353,10 +358,10 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Groupe Mtech Inc. | Tous droits réservés | Licence RBQ 5868-4754-01</p>
+      <p data-i18n="footer.copyright">© 2025 Groupe Mtech Inc. | Tous droits réservés | Licence RBQ 5868-4754-01</p>
       <div style="display:flex;align-items:center;gap:1.25rem">
         <a href="https://www.laurierweb.ca" target="_blank" rel="noopener" aria-label="Site réalisé par LaurierWeb" style="display:flex;flex-direction:column;align-items:center;gap:0.2rem;opacity:0.7;transition:opacity 0.3s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
-          <span style="color:rgba(255,255,255,0.6);font-size:0.65rem;letter-spacing:0.05em;white-space:nowrap">Site réalisé par</span>
+          <span style="color:rgba(255,255,255,0.6);font-size:0.65rem;letter-spacing:0.05em;white-space:nowrap" data-i18n="footer.madeby">Site réalisé par</span>
           <img src="Assets/Logo/logolaurier.png" alt="LaurierWeb — Création de sites web" style="height:50px;width:auto">
         </a>
         <div class="footer-social">
@@ -371,10 +376,11 @@
 
 <a href="tel:+15146057114" class="urgency-float" aria-label="Urgence toiture 514-605-7114">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-  Urgence 24/7
+  <span data-i18n="common.emergency">Urgence 24/7</span>
 </a>
 
 <script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
 <script>
 (function(){
   var form = document.getElementById('emploi-form');
