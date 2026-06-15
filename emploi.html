@@ -241,8 +241,10 @@
       <div class="animate-in stagger-2">
         <div class="card" style="padding:2.5rem">
           <form class="form" id="emploi-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" aria-label="Formulaire de candidature">
-            <input type="hidden" name="access_key" value="VOTRE_CLÉ_ICI">
+            <input type="hidden" name="access_key" value="300d2042-8540-4bb7-b944-b7015640d933">
             <input type="hidden" name="subject" value="Nouvelle candidature d'emploi — Groupe Mtech Inc.">
+            <input type="hidden" name="from_name" value="Site Web — Candidature Groupe Mtech">
+            <input type="hidden" name="replyto" id="replyto-emploi">
             <input type="checkbox" name="botcheck" style="display:none">
             <div class="form-row">
               <div class="form-group">
@@ -278,17 +280,16 @@
               <input type="date" id="disponibilite" name="disponibilite">
             </div>
             <div class="form-group">
-              <label for="cv" data-i18n="jobs.form.cv">CV (optionnel — PDF, DOC, DOCX)</label>
-              <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" style="padding:.6rem 1rem;cursor:pointer">
-            </div>
-            <div class="form-group">
               <label for="message" data-i18n="jobs.form.message">Message / Présentation</label>
               <textarea id="message" name="message" placeholder="Parlez-nous un peu de vous, votre expérience, pourquoi vous souhaitez rejoindre Groupe Mtech..." data-i18n-placeholder="jobs.ph.message"></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center" data-i18n="jobs.form.submit">
               Envoyer ma candidature →
             </button>
-            <p class="form-note" data-i18n="jobs.form.note">Réponse garantie dans les 48h ouvrables</p>
+            <p class="form-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;color:var(--red)" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Réponse garantie dans les 48h ouvrables · Pour joindre votre CV, envoyez-le par courriel à <a href="mailto:info@groupemtech.ca" style="color:var(--red);font-weight:600">info@groupemtech.ca</a>
+            </p>
           </form>
         </div>
       </div>
@@ -387,7 +388,10 @@
   if (!form) return;
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    document.getElementById('replyto-emploi').value = form.querySelector('[name="email"]').value;
     var btn = form.querySelector('button[type="submit"]');
+    var errDiv = form.querySelector('.form-error');
+    if (errDiv) errDiv.remove();
     btn.disabled = true;
     btn.textContent = 'Envoi en cours…';
     fetch('https://api.web3forms.com/submit', { method:'POST', body: new FormData(form) })
@@ -398,13 +402,21 @@
         } else {
           btn.disabled = false;
           btn.textContent = 'Envoyer ma candidature →';
-          alert('Une erreur est survenue. Veuillez réessayer ou nous appeler directement.');
+          var err = document.createElement('p');
+          err.className = 'form-error';
+          err.style.cssText = 'color:var(--red);margin-top:1rem;font-size:.9rem';
+          err.textContent = 'Une erreur est survenue. Veuillez réessayer ou nous appeler directement.';
+          form.appendChild(err);
         }
       })
       .catch(function(){
         btn.disabled = false;
         btn.textContent = 'Envoyer ma candidature →';
-        alert('Une erreur est survenue. Veuillez réessayer ou nous appeler directement.');
+        var err = document.createElement('p');
+        err.className = 'form-error';
+        err.style.cssText = 'color:var(--red);margin-top:1rem;font-size:.9rem';
+        err.textContent = 'Une erreur est survenue. Veuillez réessayer ou nous appeler directement.';
+        form.appendChild(err);
       });
   });
 })();

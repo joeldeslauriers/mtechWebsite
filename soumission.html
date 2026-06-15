@@ -224,8 +224,10 @@
         <div class="card" style="padding:2.5rem;box-shadow:0 20px 60px rgba(0,0,0,.1)">
           <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;margin-bottom:1.5rem" data-i18n="quote.form.title">Votre demande de soumission</h3>
           <form class="form" id="soumission-form" action="https://api.web3forms.com/submit" method="POST" aria-label="Formulaire de soumission gratuite">
-            <input type="hidden" name="access_key" value="VOTRE_CLÉ_ICI">
+            <input type="hidden" name="access_key" value="300d2042-8540-4bb7-b944-b7015640d933">
             <input type="hidden" name="subject" value="Nouvelle demande de soumission — Groupe Mtech Inc.">
+            <input type="hidden" name="from_name" value="Site Web — Soumission Groupe Mtech">
+            <input type="hidden" name="replyto" id="replyto-soumission">
             <input type="checkbox" name="botcheck" style="display:none">
             <div class="form-group">
               <label for="nom-complet" data-i18n="quote.form.name">Nom complet *</label>
@@ -382,7 +384,10 @@
   if (!form) return;
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    document.getElementById('replyto-soumission').value = form.querySelector('[name="email"]').value;
     var btn = form.querySelector('button[type="submit"]');
+    var errDiv = form.querySelector('.form-error');
+    if (errDiv) errDiv.remove();
     btn.disabled = true;
     btn.textContent = 'Envoi en cours…';
     fetch('https://api.web3forms.com/submit', { method:'POST', body: new FormData(form) })
@@ -393,13 +398,21 @@
         } else {
           btn.disabled = false;
           btn.textContent = 'Envoyer ma demande →';
-          alert('Une erreur est survenue. Veuillez réessayer ou nous appeler directement.');
+          var err = document.createElement('p');
+          err.className = 'form-error';
+          err.style.cssText = 'color:var(--red);margin-top:1rem;font-size:.9rem';
+          err.textContent = 'Une erreur est survenue. Veuillez réessayer ou nous appeler directement.';
+          form.appendChild(err);
         }
       })
       .catch(function(){
         btn.disabled = false;
         btn.textContent = 'Envoyer ma demande →';
-        alert('Une erreur est survenue. Veuillez réessayer ou nous appeler directement.');
+        var err = document.createElement('p');
+        err.className = 'form-error';
+        err.style.cssText = 'color:var(--red);margin-top:1rem;font-size:.9rem';
+        err.textContent = 'Une erreur est survenue. Veuillez réessayer ou nous appeler directement.';
+        form.appendChild(err);
       });
   });
 })();
